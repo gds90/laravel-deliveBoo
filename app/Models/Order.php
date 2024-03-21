@@ -9,6 +9,8 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['price', 'restaurant_id', 'delivery_address', 'name', 'surname', 'phone'];
+
     // relazioni  con le altre tabelle del database
     public function restaurant()
     {
