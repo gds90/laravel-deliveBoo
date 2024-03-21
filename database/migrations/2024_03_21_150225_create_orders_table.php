@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->decimal('price', 10, 2)->default(0);
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
+            $table->string('delivery_address', 100)->default('');
+            $table->string('name', 50)->default('');
+            $table->string('surname', 50)->default('');
+            $table->string('phone', 15)->default('');
             $table->timestamps();
         });
     }
