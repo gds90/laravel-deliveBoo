@@ -19,7 +19,7 @@ class Dish extends Model
         'visible',
     ];
 
-    // Relationships
+    // Relazioni con le altre tabelle
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);
@@ -28,5 +28,10 @@ class Dish extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class)->withPivot('quantity');
     }
 }
