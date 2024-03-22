@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
@@ -54,6 +55,10 @@ class RegisteredUserController extends Controller
 
         $user_id = User::where('email', $user->email)->get();
         $user_id = $user_id[0]->id;
+        if ($request->hasFile('cover_image')) {
+
+            $path = Storage::disk('public')->put('restaurants_image', $request->cover_image);
+        };
 
         // creo il record del ristorante dell'utente appena registrato
         $restaurant = Restaurant::create([
@@ -61,7 +66,7 @@ class RegisteredUserController extends Controller
             'slug' => Str::slug($request->restaurantName, '-'),
             'address' => $request->address,
             'p_iva' => $request->p_iva,
-            'cover_image' => $request->cover_image,
+            'cover_image' => $path,
             'user_id' => $user_id
         ]);
         $restaurant->save();
