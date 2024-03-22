@@ -20,6 +20,7 @@
                             <th scope="col">Prezzo</th>
                             <th scope="col">Immagine di Copertina</th>
                             <th scope="col">Slug</th>
+                            <th scope="col">Button</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,10 +35,10 @@
                                 <td>
                                     <div class="button-container d-flex">
                                         <a class="btn btn-warning  m-2"
-                                            href="{{ route('admin.dishes.edit', ['dish' => $dish['id']]) }}">Edit
+                                            href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">Edit
                                             dish</a>
                                         <form class=" m-2"
-                                            action="{{ route('admin.dishes.destroy', ['dish' => $dish['id']]) }}"
+                                            action="{{ route('admin.dishes.destroy', ['dish' => $dish['slug']]) }}"
                                             method="POST"
                                             onsubmit="return confirm('sei sicuro di voler eliminare il piatto?')">
                                             @csrf
