@@ -4,16 +4,19 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <img src="{{ $dish->cover_image }}" class="card-img-top" alt="...">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ asset('/storage/' . $dish->cover_image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h2>{{ $dish->name }}</h2>
+                        <h5 class="card-title">{{ $dish->name }}</h5>
+
                         <p>Prezzo: {{ $dish->price }}</p>
-                        <p>Descrizione: {{ $dish->description }}</p>
+                        <p class="card-text">Descrizione: {{ $dish->description }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
 
                     </div>
                 </div>
 
             </div>
+
         </div>
     @endsection
