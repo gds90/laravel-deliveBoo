@@ -45,7 +45,7 @@ class RestaurantController extends Controller
 
         if ($request->hasFile('cover_image')) {
 
-            $path = Storage::disk('public')->put('car_photos', $data['cover_image']);
+            $path = Storage::disk('public')->put('restaurant_photo', $data['cover_image']);
 
             $data['cover_image'] = $path;
         };
