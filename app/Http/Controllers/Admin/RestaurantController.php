@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -36,7 +39,24 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $restaurant = new Restaurant();
+
+        if ($request->hasFile('cover_image')) {
+
+            $path = Storage::disk('public')->put('car_photos', $data['cover_image']);
+
+            $data['cover_image'] = $path;
+        };
+
+        $slug = Str::slug($data['name'], '-');
+        $data['slug'] = $slug;
+
+        $restaurant->fill($data);
+
+        // salvo il record sul db
+        $restaurant->save();
     }
 
     /**
