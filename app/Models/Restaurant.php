@@ -15,7 +15,7 @@ class Restaurant extends Model
         'p_iva',
         'address',
         'cover_image',
-        'user_id'
+        'user_id',
     ];
 
     // relazione con tabella users
@@ -29,7 +29,7 @@ class Restaurant extends Model
         return $this->hasMany(Dish::class);
     }
 
-    public function type()
+    public function types()
     {
         return $this->belongsToMany(Type::class);
     }
