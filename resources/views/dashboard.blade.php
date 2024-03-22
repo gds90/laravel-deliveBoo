@@ -17,13 +17,14 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
                         <div>
                             <a href="{{ route('admin.dishes.index') }}">Dishes</a>
+                        </div>
+                        <div>
+                            <a href="{{ route('admin.restaurants.index') }}">Restaurants</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection
