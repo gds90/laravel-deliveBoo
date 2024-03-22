@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="mb-4 row">
@@ -72,22 +72,12 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4 row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Nome ristorante:</label>
+                                <label for="restaurantName" class="col-md-4 col-form-label text-md-right">Nome
+                                    ristorante:</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name"
+                                    <input id="restaurantName" type="text" class="form-control" name="restaurantName"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 </div>
                             </div>
@@ -119,6 +109,13 @@
                                 </div>
                             </div>
 
+                            <div class="mb-4 row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Register') }}
+                                    </button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
