@@ -22,7 +22,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2)->default(0);
             $table->boolean('visible')->default(true);
             $table->timestamps();
-            $table->foreignId('restaurant_id')->constrained()->cascadeOnDeletenDelete();
+            $table->foreignId('restaurant_id')->constrained()->cascadeOnDelete();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete();
         });
