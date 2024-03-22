@@ -23,8 +23,6 @@ return new class extends Migration
             $table->boolean('visible')->default(true);
             $table->timestamps();
             $table->foreignId('restaurant_id')->constrained()->cascadeOnDelete();
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete();
         });
     }
 
