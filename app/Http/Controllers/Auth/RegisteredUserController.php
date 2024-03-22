@@ -36,6 +36,10 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'restaurantName' => ['required', 'string', 'max:100'],
+            'address' => ['required', 'string', 'max:100'],
+            'p_iva' => ['required', 'string', 'max:11'],
+            'cover_image' => ['required'],
         ]);
 
         $user = User::create([
@@ -50,7 +54,7 @@ class RegisteredUserController extends Controller
 
         $user_id = User::where('email', $user->email)->get();
         $user_id = $user_id[0]->id;
-        dd($user_id);
+
         // creo il record del ristorante dell'utente appena registrato
         $restaurant = Restaurant::create([
             'name' => $request->restaurantName,

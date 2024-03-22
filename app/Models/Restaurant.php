@@ -15,6 +15,7 @@ class Restaurant extends Model
         'p_iva',
         'address',
         'cover_image',
+        'user_id'
     ];
 
     // relazione con tabella users
