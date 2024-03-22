@@ -78,7 +78,7 @@
 
                                 <div class="col-md-6">
                                     <input id="restaurantName" type="text" class="form-control" name="restaurantName"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        value="{{ old('restaurantName') }}" required autocomplete="name" autofocus>
                                 </div>
                             </div>
 
