@@ -80,6 +80,9 @@
                                     <input id="restaurantName" type="text" class="form-control" name="restaurantName"
                                         value="{{ old('restaurantName') }}" required autocomplete="name" autofocus>
                                 </div>
+                                @error('restaurantName')
+                                    <div class="text-danger m-1">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="mb-4 row">
@@ -89,6 +92,9 @@
                                     <input id="p_iva" type="text" class="form-control" name="p_iva"
                                         value="{{ old('p_iva') }}" required autocomplete="p_iva" autofocus>
                                 </div>
+                                @error('p_iva')
+                                    <div class="text-danger m-1">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="mb-4 row">
@@ -98,6 +104,9 @@
                                     <input id="address" type="text" class="form-control" name="address"
                                         value="{{ old('address') }}" required autocomplete="address" autofocus>
                                 </div>
+                                @error('address')
+                                    <div class="text-danger m-1">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="mb-4 row">
@@ -107,6 +116,9 @@
                                 <div class="col-md-6">
                                     <input type="file" name="cover_image" id="cover_image" class="form-control">
                                 </div>
+                                @error('cover_image')
+                                    <div class="text-danger m-1">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="mb-4 row mb-0">
