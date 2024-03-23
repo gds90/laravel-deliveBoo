@@ -19,7 +19,7 @@
                             <th scope="col">Descrizione</th>
                             <th scope="col">Prezzo</th>
                             <th scope="col">Immagine di Copertina</th>
-                            <th scope="col">Slug</th>
+                            <th scope="col">Categoria</th>
                             <th scope="col">Button</th>
                         </tr>
                     </thead>
@@ -31,21 +31,26 @@
                                 <td>{{ $dish->description }}</td>
                                 <td>{{ $dish->price }}</td>
                                 <td>{{ $dish->cover_image }}</td>
-                                <td>{{ $dish->slug }}</td>
+                                <td>
+                                    @if ($dish->category)
+                                        {{ $dish->category->name }}
+                                    @endif
+                                </td>
                                 <td>
                                     <div class="button-container d-flex">
                                         <a class="btn btn-warning  m-2"
-                                            href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">Edit
-                                            dish</a>
+                                            href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}"><i
+                                                class="fa-solid fa-edit"></i></a>
                                         <form class=" m-2"
                                             action="{{ route('admin.dishes.destroy', ['dish' => $dish['slug']]) }}"
                                             method="POST"
                                             onsubmit="return confirm('sei sicuro di voler eliminare il piatto?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger"><i
+                                                    class="fa-solid fa-trash"></i></button>
                                         </form>
-                                        <a href="{{ route('admin.dishes.show', ['dish' => $dish->id]) }}"
+                                        <a href="{{ route('admin.dishes.show', ['dish' => $dish->slug]) }}"
                                             class="btn btn-primary m-2"><i class="fas fa-eye"></i></a>
                                     </div>
                                 </td>

@@ -24,9 +24,9 @@ class DishController extends Controller
      */
     public function index()
     {
-        $id= Auth::id();
-        $restaurant= Restaurant::where('user_id', $id )->first();
-        $dishes = Dish::where('restaurant_id', $restaurant->id )->get();
+        $id = Auth::id();
+        $restaurant = Restaurant::where('user_id', $id)->first();
+        $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
         return view('admin.dishes.index', compact('dishes'));
     }
 
@@ -50,8 +50,8 @@ class DishController extends Controller
     public function store(StoreDishRequest $request)
     {
 
-        $user= Auth::user();
-        
+        $user = Auth::user();
+
 
         // recupero i dati inviati dalla form
         $form_data = $request->all();
@@ -71,19 +71,21 @@ class DishController extends Controller
         $slug = Str::slug($form_data['name'], '-');
         $form_data['slug'] = $slug;
 
-       
-        if($form_data['visible'] == 'on'){
-            $form_data['visible'] = 1;
-        }
-        else{
-            $form_data['visible'] = 0;
-        }
-        
+
+        // Imposta il campo 'visible' in base alla checkbox selezionata
+        $form_data['visible'] = $request->has('visible') ? 1 : 0;
+
 
         // riempio gli altri campi con la funzione fill()
         $dish->fill($form_data);
 
         $dish->restaurant_id = $user->restaurant->id;
+
+
+        // controllo se sono stati aggiunte delle categorie al piatto
+        if ($request->has('categories')) {
+            $dish->category()->attach($form_data['categories']);
+        }
 
         // salvo il record sul db
         $dish->save();
@@ -109,11 +111,18 @@ class DishController extends Controller
      * @param  \App\Models\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dish $dish ,Request $request)
+    public function edit(Dish $dish, Request $request)
     {
+        $error_message = '';
+
+        if (!empty($request->all())) {
+            $messages = $request->all();
+            $error_message = $messages['error_message'];
+        }
+
         $categories = Category::all();
-        
-        return view('admin.dishes.edit', compact('dish','categories'));
+
+        return view('admin.dishes.edit', compact('dish', 'categories', 'error_message'));
     }
 
     /**
@@ -125,46 +134,64 @@ class DishController extends Controller
      */
     public function update(UpdateDishRequest $request, Dish $dish)
     {
-        
+        $error_message = '';
 
-    // Recupera l'utente autenticato
-    $user = Auth::user();
+        // Recupera l'utente autenticato
+        $user = Auth::user();
 
-    // Verifica se l'utente ha il permesso di modificare questo piatto
-    if ($dish->restaurant->user_id !== $user->id) {
-        // Se l'utente non è autorizzato, restituisci un errore o reindirizza a una pagina di errore
-        return redirect()->route('');
-    }
+        // Verifica se l'utente ha il permesso di modificare questo piatto
+        if ($dish->restaurant->user_id !== $user->id) {
+            // Se l'utente non è autorizzato, restituisci un errore o reindirizza a una pagina di errore
+            return redirect()->route('');
+        }
 
-    // recupero i dati inviati dalla form
-    $form_data = $request->all();
+        // recupero i dati inviati dalla form
+        $form_data = $request->all();
 
-    // verifico se la richiesta contiene una nuova immagine
-    if ($request->hasFile('cover_image')) {
-        $path = Storage::disk('public')->put('dishes_image', $form_data['cover_image']);
-        $form_data['cover_image'] = $path;
+        // controllo che non esista un altro piatto con lo stesso nome passato dal form di modifica
+        $exists = Dish::where('name', 'LIKE', $form_data['name'])
+            ->where('id', '!=', $dish->id)
+            ->get();
 
-        // Elimina l'immagine precedente se presente
-        Storage::disk('public')->delete($dish->cover_image);
-    }
+        if (count($exists) > 0) {
+            $error_message = 'Hai inserito un nome di un piatto già esistente';
+            return redirect()->route('admin.dishes.edit', compact('dish', 'error_message'));
+        }
 
-    // Aggiorna lo slug del piatto se il nome è stato modificato
-    if ($dish->name !== $form_data['name']) {
-        $slug = Str::slug($form_data['name'], '-');
-        $form_data['slug'] = $slug;
-    }
+        // verifico se la richiesta contiene una nuova immagine
+        if ($request->hasFile('cover_image')) {
 
-    // Imposta il valore del campo 'visible' in base alla checkbox selezionata
-    $form_data['visible'] = $request->has('visible') ? 1 : 0;
+            // Elimino l'immagine precedente se presente
+            if ($dish->cover_image != null) {
+                Storage::disk('public')->delete($dish->cover_image);
+            }
 
-    // Aggiorna i campi del piatto con i nuovi dati
-    $dish->fill($form_data);
+            // eseguo l'upload della nuova immagine e recupero il path
+            $path = Storage::disk('public')->put('dishes_image', $form_data['cover_image']);
+            $form_data['cover_image'] = $path;
+        }
 
-    // salva le modifiche sul db
-    $dish->save();
+        // Aggiorna lo slug del piatto se il nome è stato modificato
+        if ($dish->name !== $form_data['name']) {
+            $slug = Str::slug($form_data['name'], '-');
+            $form_data['slug'] = $slug;
+        }
 
-    // effettua il redirect alla view index
-    return redirect()->route('admin.dishes.index');
+        // Imposta il valore del campo 'visible' in base alla checkbox selezionata
+        $form_data['visible'] = $request->has('visible') ? 1 : 0;
+
+        // Aggiorna i campi del piatto con i nuovi dati
+        $dish->update($form_data);
+
+        // // associo la categoria al piatto
+        // if ($request->has('categories')) {
+        //     $dish->category()->sync($form_data['categories']);
+        // } else {
+        //     $dish->category()->detach();
+        // }
+
+        // effettua il redirect alla view index
+        return redirect()->route('admin.dishes.index', compact('error_message'));
     }
 
     /**
@@ -175,6 +202,14 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+        // controllo se il progetto ha un'immagine da eliminare
+        if ($dish->cover_image != null) {
+            Storage::disk('public')->delete($dish->cover_image);
+        }
+
+        // elimino il progetto dal db
+        $dish->delete();
+
+        return redirect()->route('admin.dishes.index');
     }
 }
