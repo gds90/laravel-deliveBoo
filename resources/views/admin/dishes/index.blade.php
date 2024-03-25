@@ -31,8 +31,6 @@
                                     data-bs-toggle="modal" data-bs-target="#modal_post_delete-{{ $dish->slug }}">
                                     <i class="fa-solid fa-trash"></i>
                                 </a>
-
-                                @include('admin.dishes.partials.modal_delete')
                             </div>
                         </div>
                         <div class="card-content">
@@ -56,6 +54,7 @@
                             @endif
 
                         </div>
+                        @include('admin.dishes.partials.modal_delete')
                     </div>
                 </div>
             @endforeach

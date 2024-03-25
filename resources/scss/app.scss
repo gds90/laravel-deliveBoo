@@ -80,7 +80,9 @@ body {
     img {
         border-bottom: 1px solid lightgray;
         height: 298px;
-        aspect-ratio: 3 / 5;
+        // aspect-ratio: 3 / 5;
+        object-fit: fill;
+
     }
 
     .card-title {
