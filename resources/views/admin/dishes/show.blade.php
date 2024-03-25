@@ -19,7 +19,7 @@
                 <div class="dish-top-content text-start">
                     <div class="title d-flex justify-content-between align-items-center ">
                         <h2>{{ $dish->name }}</h2>
-                        <strong>&euro; {{ $dish->price }}</strong>
+                        <strong class="fs-5">&euro; {{ $dish->price }}</strong>
                     </div>
                     <p class="c-gray fw-semibold ">{{ $dish->category->name }}</p>
                 </div>
@@ -28,10 +28,11 @@
                     <p class="text-white">{{ $dish->description }}</p>
 
                     <div class="dish-btn-container d-flex gap-2 justify-content-center">
-                        <a class="btn edit-btn" href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">EDIT</a>
+                        <a class="btn edit-btn"
+                            href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">MODIFICA</a>
                         <a href="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" class="btn delete-btn"
                             data-bs-toggle="modal" data-bs-target="#modal_post_delete-{{ $dish->slug }}">
-                            DELETE
+                            CANCELLA
                         </a>
                         @include('admin.dishes.partials.modal_delete')
                     </div>

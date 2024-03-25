@@ -13,7 +13,7 @@
             </div>
             @foreach ($dishes as $dish)
                 <div class="col-12 col-md-4">
-                    <div class="dishes-card mb-2 mb-md-5">
+                    <div class="dishes-card mb-5 mb-md-5">
                         <div class="img-container">
                             @if ($dish->cover_image)
                                 <img src="{{ asset('/storage/' . $dish->cover_image) }}" class="card-img-top"
