@@ -32,16 +32,31 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
-    {
+    {   
+        $messages = [
+            'name.required' => 'Il campo nome è obbligatorio.',
+            'email.required' => 'Il campo email è obbligatorio.',
+            'email.email' => 'Inserisci un indirizzo email valido.',
+            'email.unique' => 'L\'indirizzo email è già stato utilizzato.',
+            'password.required' => 'Il campo password è obbligatorio.',
+            'password.confirmed' => 'La conferma della password non corrisponde.',
+            'restaurantName.required' => 'Il campo nome del ristorante è obbligatorio.',
+            'restaurantName.unique' => "Esiste già un ristorante con questo nome",
+            'address.required' => 'Il campo indirizzo è obbligatorio.',
+            'p_iva.required' => 'Il campo Partita IVA è obbligatorio.',
+            'p_iva.size' => 'La Partita IVA deve avere :size caratteri.',
+            'cover_image.required' => 'È richiesta un\'immagine di copertina per il ristorante.',
+        ];
+    
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'restaurantName' => ['required', 'string', 'max:100'],
+            'restaurantName' => ['required', 'string', 'max:100', 'unique:restaurants,name'],
             'address' => ['required', 'string', 'max:100'],
-            'p_iva' => ['required', 'string', 'max:11'],
+            'p_iva' => ['required', 'string', 'size:11'],
             'cover_image' => ['required'],
-        ]);
+        ],$messages);
 
         $user = User::create([
             'name' => $request->name,
