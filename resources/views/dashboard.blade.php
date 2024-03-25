@@ -18,11 +18,11 @@
                         @endif
 
                         <div>
-                            <a href="{{ route('admin.dishes.index') }}">Dishes</a>
+                            <a href="{{ route('admin.dishes.index') }}">Visualizza i tuoi piatti</a>
                         </div>
-                        <div>
+                        {{-- <div>
                             <a href="{{ route('admin.restaurants.index') }}">Restaurants</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

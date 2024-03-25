@@ -5,20 +5,20 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">Registrazione</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="mb-4 row">
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Nome e cognome:</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus
+                                        placeholder="Inserisci nome e cognome">
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -29,13 +29,14 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">Indirizzo
+                                    e-mail:</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
+                                        value="{{ old('email') }}" required autocomplete="email"
+                                        placeholder="Inserisci il tuo indirizzo e-mail">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -52,7 +53,7 @@
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password">
+                                        required autocomplete="new-password" placeholder="Inserisci la password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -64,11 +65,12 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        name="password_confirmation" required autocomplete="new-password"
+                                        placeholder="Conferma la password">
                                 </div>
                             </div>
 
@@ -78,7 +80,8 @@
 
                                 <div class="col-md-6">
                                     <input id="restaurantName" type="text" class="form-control" name="restaurantName"
-                                        value="{{ old('restaurantName') }}" required autocomplete="name" autofocus>
+                                        value="{{ old('restaurantName') }}" required autocomplete="name" autofocus
+                                        placeholder="Inserisci il nome della tua attività">
                                 </div>
                                 @error('restaurantName')
                                     <div class="text-danger m-1">{{ $message }}</div>
@@ -90,7 +93,8 @@
 
                                 <div class="col-md-6">
                                     <input id="p_iva" type="text" class="form-control" name="p_iva"
-                                        value="{{ old('p_iva') }}" required autocomplete="p_iva" autofocus>
+                                        value="{{ old('p_iva') }}" required autocomplete="p_iva" autofocus
+                                        placeholder="Inserisci la tua partita IVA">
                                 </div>
                                 @error('p_iva')
                                     <div class="text-danger m-1">{{ $message }}</div>
@@ -102,7 +106,8 @@
 
                                 <div class="col-md-6">
                                     <input id="address" type="text" class="form-control" name="address"
-                                        value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                        value="{{ old('address') }}" required autocomplete="address" autofocus
+                                        placeholder="Inserisci l'indirizzo della tua attività">
                                 </div>
                                 @error('address')
                                     <div class="text-danger m-1">{{ $message }}</div>
@@ -121,10 +126,10 @@
                                 @enderror
                             </div>
 
-                            <div class="mb-4 row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                            <div class="mb-2 row mb-0 justify-content-start ">
+                                <div class="col-md-6">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
+                                        Registrati
                                     </button>
                                 </div>
                             </div>
