@@ -23,7 +23,7 @@
                             <div class="form-group">
                                 <label for="cover_image">Immagine di copertina</label>
                                 <input type="file" class="form-control-file @error('cover_image') is-invalid @enderror"
-                                    id="cover_image" name="cover_image" value="{{ old('cover_image') }}" required>
+                                    id="cover_image" name="cover_image" value="{{ old('cover_image') }}">
                                 @error('cover_image')
                                     <div class="text-danger m-1">{{ $message }}</div>
                                 @enderror
