@@ -1,1 +1,71 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    font-family: "Lilita One", sans-serif;
+}
+
+.bg_blue_primary {
+    background-color: rgb(21, 49, 96);
+}
+
+.bg_gradient {
+    background: rgb(253, 243, 209);
+    background: radial-gradient(circle, rgba(253, 243, 209, 1) 0%, rgba(245, 195, 68, 1) 0%, rgba(253, 243, 209, 1) 100%);
+}
+
+.text_blue_primary {
+    color: rgb(21, 49, 96);
+}
+
+.roundedTable {
+    border-collapse: collapse;
+    border-radius: 1.2em;
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+}
+
+// APP.BLADE
+.logo {
+    img {
+        width: 80px;
+    }
+}
+
+.logo_text {
+    img {
+        width: 200px;
+    }
+}
+
+// WELCOME.BLADE
+.jumbo {
+    height: 600px;
+
+    .content_jumbo_left {
+        position: absolute;
+        left: -15%;
+        margin: 0;
+
+        img {
+            width: 1000px;
+        }
+    }
+
+
+
+    .jumbo_text {
+        color: rgb(245, 195, 68);
+        font-weight: 800;
+        font-style: normal;
+        padding-top: 60px;
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        h2 {
+            font-size: 6rem;
+        }
+    }
+}
