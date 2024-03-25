@@ -3,61 +3,80 @@
 @section('dashboard_content')
     <div class="container py-3">
         <div class="row">
-            <div class="col-12">
-                <div class="content d-flex align-items-center">
-                    <a class="btn btn-outline-warning fw-bold m-3" href="{{ Route('admin.dishes.create') }}" role="button"><i
-                            class="fa-solid fa-plus"></i></a>
-                    <div class="text-warning ">Aggiungi un nuovo piatto</div>
 
-                </div>
-            </div>
-            @foreach ($dishes as $dish)
-                <div class="col-12 col-md-4">
-                    <div class="dishes-card mb-5 mb-md-5">
-                        <div class="img-container">
-                            @if ($dish->cover_image)
-                                <img src="{{ asset('/storage/' . $dish->cover_image) }}" class="card-img-top"
-                                    alt="{{ $dish->name }}">
-                            @else
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpjVJ95QK9Z7ppeuEptxKb-QhLhdKkx6XbzuVd90YuJaJavpvQ2qTxDDpkH95m4A3Jbj8&usqp=CAU"
-                                    alt="placeholder" class="card-img-top">
-                            @endif
-                            <div class="overlay d-flex justify-content-center align-items-center gap-3">
-                                <a href="{{ route('admin.dishes.show', ['dish' => $dish->slug]) }}" class="dish-btn"><i
-                                        class="fas fa-eye"></i></a>
-                                <a class="dish-btn" href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}"><i
-                                        class="fa-solid fa-edit"></i></a>
-                                <a href="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" class="dish-btn"
-                                    data-bs-toggle="modal" data-bs-target="#modal_post_delete-{{ $dish->slug }}">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h4 class="card-title fs-4 text-start mb-1">
-                                {{ $dish->name }}
+            @if ($dishes->count() > 0)
+                <div class="col-12 mb-3">
+                    <div class="content d-flex align-items-center fs-3">
+                        <a class="btn btn-outline-warning fw-bold m-3" href="{{ Route('admin.dishes.create') }}"
+                            role="button"><i class="fa-solid fa-plus"></i></a>
+                        <div class="text-warning">Aggiungi un nuovo piatto</div>
 
-                                @if ($dish->visible)
-                                    <i class="fas fa-eye ms-2"></i>
-                                @else
-                                    <i class="fas fa-eye-slash ms-2"></i>
-                                @endif
-
-                            </h4>
-                            @if ($dish->category)
-                                <p class="card-text c-gray fw-semibold d-flex justify-content-between fs-6">
-                                    <span>{{ $dish->category->name }}</span>
-                                    <span class="">&euro; {{ $dish->price }}</span>
-                                </p>
-                            @else
-                                <p class="card-text c-gray fw-semibold">No Category</p>
-                            @endif
-
-                        </div>
-                        @include('admin.dishes.partials.modal_delete')
                     </div>
                 </div>
-            @endforeach
+                <div class="dish-card-container">
+                    <div class="row">
+                        @foreach ($dishes as $dish)
+                            <div class="col-12 col-md-4">
+                                <div class="dishes-card mb-5 mb-md-5">
+                                    <div class="img-container">
+                                        @if ($dish->cover_image)
+                                            <img src="{{ asset('/storage/' . $dish->cover_image) }}" class="card-img-top"
+                                                alt="{{ $dish->name }}">
+                                        @else
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpjVJ95QK9Z7ppeuEptxKb-QhLhdKkx6XbzuVd90YuJaJavpvQ2qTxDDpkH95m4A3Jbj8&usqp=CAU"
+                                                alt="placeholder" class="card-img-top">
+                                        @endif
+                                        <div class="overlay d-flex justify-content-center align-items-center gap-3">
+                                            <a href="{{ route('admin.dishes.show', ['dish' => $dish->slug]) }}"
+                                                class="dish-btn"><i class="fas fa-eye"></i></a>
+                                            <a class="dish-btn"
+                                                href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}"><i
+                                                    class="fa-solid fa-edit"></i></a>
+                                            <a href="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}"
+                                                class="dish-btn" data-bs-toggle="modal"
+                                                data-bs-target="#modal_post_delete-{{ $dish->slug }}">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </a>
+
+                                            @include('admin.dishes.partials.modal_delete')
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-title fs-4 text-start mb-1">
+                                            {{ $dish->name }}
+
+                                            @if ($dish->visible)
+                                                <i class="fas fa-eye ms-2"></i>
+                                            @else
+                                                <i class="fas fa-eye-slash ms-2"></i>
+                                            @endif
+
+                                        </h4>
+                                        @if ($dish->category)
+                                            <p class="card-text c-gray fw-semibold d-flex justify-content-between fs-6">
+                                                <span>{{ $dish->category->name }}</span>
+                                                <span class="">&euro; {{ $dish->price }}</span>
+                                            </p>
+                                        @else
+                                            <p class="card-text c-gray fw-semibold">No Category</p>
+                                        @endif
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @else
+                <div class="col-12 p-5">
+                    <div class="content d-flex align-items-center justify-content-center">
+                        <div class="text-white fs-1 fw-bold">Aggiungi il tuo primo piatto</div>
+                        <a class="btn btn-outline-warning fw-bold m-3" href="{{ Route('admin.dishes.create') }}"
+                            role="button"><i class="fa-solid fa-plus"></i></a>
+
+                    </div>
+                </div>
+            @endif
             {{-- <table class="table">
                     <thead>
                         <tr class="">
