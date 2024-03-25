@@ -7,7 +7,7 @@
                 <div class="content d-flex align-items-center">
                     <a class="btn btn-outline-warning fw-bold m-3" href="{{ Route('admin.dishes.create') }}" role="button"><i
                             class="fa-solid fa-plus"></i></a>
-                    <div class="text-warning ">Aggiungi un nuovo piatto: </div>
+                    <div class="text-warning ">Aggiungi un nuovo piatto</div>
 
                 </div>
             </div>

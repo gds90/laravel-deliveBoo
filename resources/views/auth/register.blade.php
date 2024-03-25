@@ -100,43 +100,44 @@
                                     <div class="text-danger m-1">{{ $message }}</div>
                                 @enderror
                             </div>
-
-                            <div class="mb-4 row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right">Indirizzo:</label>
-
-                                <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control" name="address"
-                                        value="{{ old('address') }}" required autocomplete="address" autofocus
-                                        placeholder="Inserisci l'indirizzo della tua attività">
-                                </div>
-                                @error('address')
-                                    <div class="text-danger m-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4 row">
-                                <label for="cover_image" class="col-md-4 col-form-label text-md-right">Immagine di
-                                    copertina:</label>
-
-                                <div class="col-md-6">
-                                    <input type="file" name="cover_image" id="cover_image" class="form-control">
-                                </div>
-                                @error('cover_image')
-                                    <div class="text-danger m-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-2 row mb-0 justify-content-start ">
-                                <div class="col-md-6">
-                                    <button type="submit" class="btn btn-outline-light">
-                                        Registrati
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
+
+                    <div class="mb-4 row">
+                        <label for="address" class="col-md-4 col-form-label text-md-right">Indirizzo:</label>
+
+                        <div class="col-md-6">
+                            <input id="address" type="text" class="form-control" name="address"
+                                value="{{ old('address') }}" required autocomplete="address" autofocus
+                                placeholder="Inserisci l'indirizzo della tua attività">
+                        </div>
+                        @error('address')
+                            <div class="text-danger m-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-4 row">
+                        <label for="cover_image" class="col-md-4 col-form-label text-md-right">Immagine di
+                            copertina:</label>
+
+                        <div class="col-md-6">
+                            <input type="file" name="cover_image" id="cover_image" class="form-control">
+                        </div>
+                        @error('cover_image')
+                            <div class="text-danger m-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-2 row mb-0 justify-content-start ">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-outline-light">
+                                Registrati
+                            </button>
+                        </div>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
