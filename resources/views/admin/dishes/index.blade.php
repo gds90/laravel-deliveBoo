@@ -12,7 +12,7 @@
                 </div>
             </div>
             @foreach ($dishes as $dish)
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-4">
                     <div class="dishes-card mb-2 mb-md-5">
                         <div class="img-container">
                             @if ($dish->cover_image)
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="card-content">
-                            <h4 class="card-title">
+                            <h4 class="card-title fs-4 text-start mb-1">
                                 {{ $dish->name }}
 
                                 @if ($dish->visible)
@@ -47,10 +47,14 @@
 
                             </h4>
                             @if ($dish->category)
-                                <p class="card-text c-gray fw-semibold">{{ $dish->category->name }}</p>
+                                <p class="card-text c-gray fw-semibold d-flex justify-content-between fs-6">
+                                    <span>{{ $dish->category->name }}</span>
+                                    <span class="">&euro; {{ $dish->price }}</span>
+                                </p>
+                            @else
+                                <p class="card-text c-gray fw-semibold">No Category</p>
                             @endif
-                            <p class="card-text description">{{ $dish->description }}</p>
-                            <p class="card-text text-end">&euro; {{ $dish->price }}</p>
+
                         </div>
                     </div>
                 </div>
