@@ -17,6 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -145,7 +150,7 @@
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4">
+                    <h6 class="text-uppercase text-black  mb-4 fs-5">
                         <i class="fas fa-gem me-3"></i>Deliveboo S.r.L.
                     </h6>
                     <p>
@@ -158,7 +163,7 @@
                 <!-- Grid column -->
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
+                    <h6 class="text-uppercase text-black mb-4 fs-5">
                         LISTA FOOTER 1
                     </h6>
                     <ul class="list-unstyled ">
@@ -180,7 +185,7 @@
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
+                    <h6 class="text-uppercase text-black fs-5 mb-4">
                         Link utili
                     </h6>
                     <p>
@@ -201,7 +206,7 @@
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">Contatti</h6>
+                    <h6 class="text-uppercase text-black mb-4 fs-5">Contatti</h6>
                     <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
@@ -218,7 +223,7 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    <div class="text-center p-4 open-sans" style="background-color: rgba(0, 0, 0, 0.05);">
         © 2024 Copyright:
         <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Deliveboo.com</a>
     </div>

@@ -4,6 +4,22 @@ body {
     font-family: "Lilita One", sans-serif;
 }
 
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 800
+
+.open-sans-300 {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.open-sans {
+    font-family: "Open Sans", sans-serif;
+}
+
 .bg_blue_primary {
     background-color: rgb(21, 49, 96);
 }
@@ -85,9 +101,8 @@ body {
     img {
         border-bottom: 1px solid lightgray;
         height: 298px;
-        // aspect-ratio: 3 / 5;
         object-fit: fill;
-
+        object-position: center
     }
 
     .card-title {

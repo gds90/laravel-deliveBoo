@@ -19,13 +19,13 @@
                 <div class="dish-top-content text-start">
                     <div class="title d-flex justify-content-between align-items-center ">
                         <h2>{{ $dish->name }}</h2>
-                        <strong class="fs-5">&euro; {{ $dish->price }}</strong>
+                        <strong class="fs-3">&euro; {{ $dish->price }}</strong>
                     </div>
-                    <p class="c-gray fw-semibold ">{{ $dish->category->name }}</p>
+                    <p class="c-gray fw-semibold open-sans">{{ $dish->category->name ?? '' }}</p>
                 </div>
 
                 <div class="dish-bottom-content">
-                    <p class="text-white">{{ $dish->description }}</p>
+                    <p class="text-white open-sans">{{ $dish->description }}</p>
 
                     <div class="dish-btn-container d-flex gap-2 justify-content-center">
                         <a class="btn edit-btn"

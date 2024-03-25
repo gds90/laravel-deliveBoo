@@ -53,12 +53,13 @@
 
                                         </h4>
                                         @if ($dish->category)
-                                            <p class="card-text c-gray fw-semibold d-flex justify-content-between fs-6">
+                                            <p
+                                                class="card-text c-gray fw-semibold open-sans d-flex justify-content-between fs-6">
                                                 <span>{{ $dish->category->name }}</span>
                                                 <span class="">&euro; {{ $dish->price }}</span>
                                             </p>
                                         @else
-                                            <p class="card-text c-gray fw-semibold">No Category</p>
+                                            <p class="card-text c-gray fw-semibold open-sans">Senza categoria</p>
                                         @endif
 
                                     </div>
