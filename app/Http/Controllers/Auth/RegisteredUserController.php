@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Restaurant;
+use App\Models\Type;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -23,7 +25,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $types = Type::all();
+        return view('auth.register', compact('types'));
     }
 
     /**
@@ -32,7 +35,7 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
-    {   
+    {
         $messages = [
             'name.required' => 'Il campo nome è obbligatorio.',
             'email.required' => 'Il campo email è obbligatorio.',
@@ -47,7 +50,7 @@ class RegisteredUserController extends Controller
             'p_iva.size' => 'La Partita IVA deve avere :size caratteri.',
             'cover_image.required' => 'È richiesta un\'immagine di copertina per il ristorante.',
         ];
-    
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
@@ -56,7 +59,7 @@ class RegisteredUserController extends Controller
             'address' => ['required', 'string', 'max:100'],
             'p_iva' => ['required', 'string', 'size:11'],
             'cover_image' => ['required'],
-        ],$messages);
+        ], $messages);
 
         $user = User::create([
             'name' => $request->name,
@@ -85,6 +88,10 @@ class RegisteredUserController extends Controller
             'user_id' => $user_id
         ]);
         $restaurant->save();
+
+        if ($request->has('type')) {
+            $restaurant->types()->attach($request['type']);
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }

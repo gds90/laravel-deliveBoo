@@ -11,9 +11,9 @@
                 </div>
 
                 <div class="col-12 col-md-6 text-white">
-                    <strong class="open-sans">Inserisci i tuoi dati personali:</strong>
+                    <strong class="open-sans fs-5">Inserisci i tuoi dati personali:</strong>
 
-                    <div class="mb-4">
+                    <div class="mb-4 mt-3">
                         <label for="name" class="col-md-4 col-form-label text-md-right">Nome e cognome:</label>
 
                         <div>
@@ -75,9 +75,9 @@
                 </div>
 
                 <div class="col-12 col-md-6 text-white">
-                    <strong class="open-sans">Inserisci i dati del Ristorante:</strong>
+                    <strong class="open-sans fs-5">Inserisci i dati del Ristorante:</strong>
 
-                    <div class="mb-4">
+                    <div class="mb-4 mt-3">
                         <label for="restaurantName" class="col-md-4 col-form-label text-md-right">Nome
                             ristorante:</label>
 
@@ -129,12 +129,43 @@
                     </div>
                 </div>
 
-                <div class="mb-2 text-center ">
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-xl btn-outline-warning w-50">
+
+                <div class="col-12 col-md-6 d-flex align-items-end">
+                    <div class="w-100">
+                        <button type="submit" class="btn btn-lg btn-outline-warning w-100">
                             Registrati
                         </button>
                     </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="accordionExample" class=" form-label text-white ">Aggiungi il tipo di attività: </label>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Scegli il tipo di attività
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body d-flex flex-wrap gap-2">
+                                    @foreach ($types as $type)
+                                        <div class="col-3">
+                                            <input type="checkbox" class="form-check-input" name="type[]"
+                                                id="type-{{ $type->id }}" value="{{ $type->id }}"
+                                                {{ in_array($type->id, old('type', [])) ? 'checked' : '' }}>
+                                            <label for="type-{{ $type->id }}"
+                                                class=" form-check-label open-sans fw-semibold ms-2">{{ $type->name }}</label>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
                 {{-- <div class="col-md-8">
                     <div class="card">
