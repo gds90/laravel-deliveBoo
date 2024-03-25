@@ -39,7 +39,6 @@ class UpdateDishRequest extends FormRequest
             'name.required' => "Il campo nome è obbligatorio",
             'name.min' => "Il campo nome deve contenere almeno 3 caratteri",
             'name.max' => "Il campo nome non può superare i 50 caratteri",
-            'name.unique' => "Esiste già un piatto con questo nome",
 
             'description.required' => "La descrizione del piatto è richiesta",
             'description.string' => "La descrizione deve essere un testo",

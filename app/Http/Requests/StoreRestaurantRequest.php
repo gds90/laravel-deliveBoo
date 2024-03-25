@@ -24,7 +24,7 @@ class StoreRestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:100',
+            'name' => 'required|min:3|max:100|unique:restaurants',
             'p_iva' => 'required|size:11',
             'address' => 'required|min:3|max:100',
             'cover_image' => 'nullable|image|max:2048', // max 2MB
