@@ -129,7 +129,7 @@
 
                     <div class="mb-2 row mb-0 justify-content-start ">
                         <div class="col-md-6">
-                            <button type="submit" class="btn btn-outline-light">
+                            <button type="submit" class="btn btn-outline-warning">
                                 Registrati
                             </button>
                         </div>
