@@ -38,6 +38,7 @@ class StoreRestaurantRequest extends FormRequest
             'name.required' => 'Il campo nome è obbligatorio!',
             'name.min' => 'Il campo nome deve contenere almeno 3 caratteri',
             'name.max' => 'Il campo nome non può superare i 100 caratteri',
+            'name.unique' => "Esiste già un ristorante con questo nome",
 
             'p_iva.required' => 'Il campo Partita IVA è obbligatorio!',
             'p_iva.size' => 'Il campo Partita IVA deve essere di 11 cifre',
