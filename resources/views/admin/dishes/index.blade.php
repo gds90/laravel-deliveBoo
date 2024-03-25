@@ -1,37 +1,38 @@
-@extends('layouts.app')
+@extends('dashboard')
 
-@section('content')
-    <div class="container">
+@section('dashboard_content')
+    <div class="container py-3">
         <div class="row">
             <div class="col-12">
                 <div class="content d-flex align-items-center">
-                    <div class="fw-bold">Aggiungi un nuovo piatto: </div>
-                    <a class="btn btn-success fw-bold m-3" href="{{ Route('admin.dishes.create') }}"
-                        role="button">Aggiungi</a>
+                    <a class="btn btn-outline-warning fw-bold m-3" href="{{ Route('admin.dishes.create') }}" role="button"><i
+                            class="fa-solid fa-plus"></i></a>
+                    <div class="text-warning ">Aggiungi un nuovo piatto: </div>
+
                 </div>
             </div>
-            <div class="col-12">
-                <table class="table">
+            <div class="col-12 py-3">
+                <table class="table table-warning roundedTable">
                     <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Descrizione</th>
-                            <th scope="col">Prezzo</th>
-                            <th scope="col">Immagine di Copertina</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Button</th>
+                        <tr class="">
+                            <th scope="col" class="fw-light fs-5">#</th>
+                            <th scope="col" class="fw-light fs-5">Nome</th>
+                            <th scope="col" class="fw-light fs-5">Descrizione</th>
+                            <th scope="col" class="fw-light fs-5">Prezzo</th>
+                            <th scope="col" class="fw-light fs-5">Immagine di Copertina</th>
+                            <th scope="col" class="fw-light fs-5">Categoria</th>
+                            <th scope="col" class="fw-light fs-5">Strumenti</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($dishes as $dish)
                             <tr>
-                                <th scope="row">{{ $dish->id }}</th>
-                                <td>{{ $dish->name }}</td>
-                                <td>{{ $dish->description }}</td>
-                                <td>{{ $dish->price }}</td>
-                                <td>{{ $dish->cover_image }}</td>
-                                <td>
+                                <th scope="row" class="text-secondary-emphasis ">{{ $dish->id }}</th>
+                                <td class="text-secondary-emphasis ">{{ $dish->name }}</td>
+                                <td class="text-secondary-emphasis ">{{ $dish->description }}</td>
+                                <td class="text-secondary-emphasis ">{{ $dish->price }}€</td>
+                                <td><img src="/storage/{{ $dish->cover_image }}" class="w-25"></img></td>
+                                <td class="text-secondary-emphasis ">
                                     @if ($dish->category)
                                         {{ $dish->category->name }}
                                     @endif

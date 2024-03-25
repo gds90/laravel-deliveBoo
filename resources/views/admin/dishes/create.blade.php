@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Crea un nuovo elemento</div>
+                    <div class="card-header bg-warning-subtle">Inserisci un nuovo piatto nel menù</div>
 
-                    <div class="card-body">
+                    <div class="card-body bg-warning">
                         <form method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
                             @csrf
 
-                            <div class="form-group">
-                                <label for="name">Nome</label>
+                            <div class="form-group mb-2">
+                                <label for="name" class="control-label m-1">Nome</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
                                     id="name" name="name" placeholder="Nome del piatto" value="{{ old('name') }}"
                                     required>
@@ -20,43 +20,34 @@
                                     <div class="text-danger m-1">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="cover_image">Immagine di copertina</label>
+                            <div class="form-group my-2">
+                                <label for="cover_image" class="control-label m-1">Immagine di copertina</label>
                                 <input type="file" class="form-control-file @error('cover_image') is-invalid @enderror"
                                     id="cover_image" name="cover_image" value="{{ old('cover_image') }}" required>
                                 @error('cover_image')
                                     <div class="text-danger m-1">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="description">Descrizione</label>
+                            <div class="form-group my-2">
+                                <label for="description" class="control-label m-1">Descrizione</label>
                                 <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
-                                    placeholder="Inserisci qui la descrizione del progetto" cols="100" rows="10" required>{{ old('description') }}</textarea>
+                                    placeholder="Inserisci qui la descrizione del piatto" cols="100" rows="5" required>{{ old('description') }}</textarea>
                                 @error('description')
                                     <div class="text-danger m-1">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="price">Prezzo</label>
-                                <input type="number" step="0.01"
+                            <div class="form-group my-2">
+                                <label for="price" class="control-label m-1">Prezzo</label>
+                                <input type="number" step="0.01" min="0"
                                     class="form-control @error('price') is-invalid @enderror" id="price" name="price"
                                     placeholder="Inserisci il prezzo del piatto" value="{{ old('price') }}"required>
                                 @error('price')
                                     <div class="text-danger m-1">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input @error('visible') is-invalid @enderror" type="checkbox"
-                                        id="visible" name="visible" value="1" {{ old('visible') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="visible">Visibile</label>
-                                </div>
-                                @error('visible')
-                                    <div class="text-danger m-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="category_id">Categoria del piatto</label>
+
+                            <div class="form-group my-2">
+                                <label for="category_id" class="control-label m-1">Categoria del piatto</label>
                                 <select class="form-select @error('category_id') is-invalid @enderror" id="category_id"
                                     name="category_id">
                                     <option value="">Seleziona una categoria</option>
@@ -71,8 +62,17 @@
                                     <div class="text-danger m-1">{{ $message }}</div>
                                 @enderror
                             </div>
-
-                            <button type="submit" class="btn btn-primary">Crea</button>
+                            <div class="form-group my-3">
+                                <div class="form-check m-1">
+                                    <input class="form-check-input @error('visible') is-invalid @enderror" type="checkbox"
+                                        id="visible" name="visible" value="1" {{ old('visible') ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="visible">Disponibile subito?</label>
+                                </div>
+                                @error('visible')
+                                    <div class="text-danger m-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <button type="submit" class="btn btn-outline-light">Crea</button>
                         </form>
                     </div>
                 </div>
