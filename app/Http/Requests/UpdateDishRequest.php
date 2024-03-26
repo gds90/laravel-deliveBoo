@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateDishRequest extends FormRequest
 {
@@ -23,8 +24,17 @@ class UpdateDishRequest extends FormRequest
      */
     public function rules()
     {
+        $restaurantId = auth()->user()->restaurant->id; // Ottieni l'ID del ristorante dell'utente corrente
+
         return [
-            'name' => 'required|min:3|max:50|',
+            'name' => [
+                'required',
+                'min:3',
+                'max:50',
+                Rule::unique('dishes')->where(function ($query) use ($restaurantId) {
+                    return $query->where('restaurant_id', $restaurantId);
+                }),
+            ],
             'description' => 'required|string|min:10|max:255',
             'cover_image' => 'nullable|image|max:2048', // 2MB Max
             'price' => 'required|numeric|between:0,99.99',
