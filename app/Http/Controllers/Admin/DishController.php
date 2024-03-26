@@ -69,6 +69,11 @@ class DishController extends Controller
 
         // creo lo slug del piatto
         $slug = Str::slug($form_data['name'], '-');
+        $baseSlug = $slug;
+        $count = 1;
+        while (Dish::where('slug', $slug)->exists()) {
+            $slug = $baseSlug . '-' . $count++;
+        }
         $form_data['slug'] = $slug;
 
 
@@ -123,7 +128,7 @@ class DishController extends Controller
 
             $error_message = 'Non hai il permesso per modificare questo piatto';
             // Se l'utente non è autorizzato, restituisci un errore o reindirizza a una pagina di errore
-            return redirect()->route('admin.dishes.index')->with('error_message', $error_message);
+            return redirect()->route('login')->with('error_message', $error_message);
         }
 
         if (!empty($request->all())) {
@@ -163,6 +168,7 @@ class DishController extends Controller
         // controllo che non esista un altro piatto con lo stesso nome passato dal form di modifica
         $exists = Dish::where('name', 'LIKE', $form_data['name'])
             ->where('id', '!=', $dish->id)
+            ->where('restaurant_id', $user->restaurant->id)
             ->get();
 
         if (count($exists) > 0) {
@@ -186,6 +192,11 @@ class DishController extends Controller
         // Aggiorna lo slug del piatto se il nome è stato modificato
         if ($dish->name !== $form_data['name']) {
             $slug = Str::slug($form_data['name'], '-');
+            $baseSlug = $slug;
+            $count = 1;
+            while (Dish::where('slug', $slug)->exists()) {
+                $slug = $baseSlug . '-' . $count++;
+            }
             $form_data['slug'] = $slug;
         }
 
