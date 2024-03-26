@@ -138,8 +138,9 @@
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button open-sans collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
                                         Scegli il tipo di attività
                                     </button>
                                 </h2>
@@ -149,7 +150,7 @@
                                     <div class="accordion-body d-flex flex-wrap gap-2">
                                         @foreach ($types as $type)
                                             <div class="col-5 col-md-12 col-lg-3">
-                                                <input type="checkbox" class="form-check-input" name="type[]"
+                                                <input type="checkbox" class="form-check-input open-sans" name="type[]"
                                                     id="type-{{ $type->id }}" value="{{ $type->id }}"
                                                     {{ in_array($type->id, old('type', [])) ? 'checked' : '' }}>
                                                 <label for="type-{{ $type->id }}"
