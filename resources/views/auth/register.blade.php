@@ -6,7 +6,7 @@
         <div class="container p-5">
             <div class="row justify-content-center">
 
-                <div id="registration-errors" class="errors"></div>
+                <div id="registration-errors" class="text-warning"></div>
 
                 <div class="col-12 text-warning mb-4">
                     <h1>Registrazione</h1>
@@ -151,7 +151,7 @@
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body d-flex flex-wrap gap-2">
                                         @foreach ($types as $type)
-                                            <div class="col-5 col-md-12 col-lg-3">
+                                            <div class="col-5 col-md-12 col-lg-3 accordion-content">
                                                 <input type="checkbox" class="form-check-input open-sans" name="type[]"
                                                     id="type-{{ $type->id }}" value="{{ $type->id }}"
                                                     {{ in_array($type->id, old('type', [])) ? 'checked' : '' }}>
