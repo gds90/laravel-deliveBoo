@@ -169,7 +169,7 @@
 
 
                 <div class="col-12 d-flex align-items-end ">
-                    <div class="w-100">
+                    <div class="w-50 m-auto">
                         <button type="submit" class="btn btn-lg btn-outline-warning w-100">
                             Registrati
                         </button>
