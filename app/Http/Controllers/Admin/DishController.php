@@ -115,6 +115,17 @@ class DishController extends Controller
     {
         $error_message = '';
 
+        // Recupera l'utente autenticato
+        $user = Auth::user();
+
+        // Verifica se l'utente ha il permesso di modificare questo piatto
+        if ($dish->restaurant->user_id !== $user->id) {
+
+            $error_message = 'Non hai il permesso per modificare questo piatto';
+            // Se l'utente non è autorizzato, restituisci un errore o reindirizza a una pagina di errore
+            return redirect()->route('admin.dishes.index')->with('error_message', $error_message);
+        }
+
         if (!empty($request->all())) {
             $messages = $request->all();
             $error_message = $messages['error_message'];

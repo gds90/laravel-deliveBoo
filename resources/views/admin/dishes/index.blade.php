@@ -6,6 +6,11 @@
 
             @if ($dishes->count() > 0)
                 <div class="col-12 mb-3">
+                    @if (session('error_message'))
+                        <div class="d-flex justify-content-center ">
+                            <h4 class="text-warning">{{ session('error_message') }}</h4>
+                        </div>
+                    @endif
                     <div class="content d-flex align-items-center fs-3">
                         <a class="btn btn-outline-warning fw-bold m-3" href="{{ Route('admin.dishes.create') }}"
                             role="button"><i class="fa-solid fa-plus"></i></a>
@@ -70,6 +75,11 @@
                 </div>
             @else
                 <div class="col-12 p-5">
+                    @if (session('error_message'))
+                        <div class="d-flex justify-content-center ">
+                            <h4 class="text-warning">{{ session('error_message') }}</h4>
+                        </div>
+                    @endif
                     <div class="content d-flex align-items-center justify-content-center">
                         <div class="text-white fs-1 fw-bold">Aggiungi il tuo primo piatto</div>
                         <a class="btn btn-outline-warning fw-bold m-3" href="{{ Route('admin.dishes.create') }}"
