@@ -20,11 +20,11 @@
                                 <div class="dishes-card mb-5 mb-md-5">
                                     <div class="img-container">
                                         @if ($dish->cover_image)
-                                            <img src="{{ asset('/storage/' . $dish->cover_image) }}" class="card-img-top"
-                                                alt="{{ $dish->name }}">
+                                            <img src="{{ asset('/storage/' . $dish->cover_image) }}"
+                                                class="card-img-top img-fluid" alt="{{ $dish->name }}">
                                         @else
                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpjVJ95QK9Z7ppeuEptxKb-QhLhdKkx6XbzuVd90YuJaJavpvQ2qTxDDpkH95m4A3Jbj8&usqp=CAU"
-                                                alt="placeholder" class="card-img-top">
+                                                alt="placeholder" class="card-img-top img-fluid">
                                         @endif
                                         <div class="overlay d-flex justify-content-center align-items-center gap-3">
                                             <a href="{{ route('admin.dishes.show', ['dish' => $dish->slug]) }}"
