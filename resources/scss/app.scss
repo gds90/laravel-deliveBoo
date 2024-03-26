@@ -63,15 +63,16 @@ body {
 
 // WELCOME.BLADE
 .jumbo {
-    height: 600px;
+    min-height: 600px;
 
     .content_jumbo_left {
-        position: absolute;
-        left: -15%;
+        position: relative;
         margin: 0;
 
         img {
-            width: 1000px;
+            position: absolute;
+            max-width: 150%;
+            left: -40%;
         }
     }
 

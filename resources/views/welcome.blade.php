@@ -24,13 +24,13 @@
     <div class="content jumbo bg_blue_primary">
         <div class="container">
             <div class="row justify-content-center text-white pt-5">
-                <div class="col-3">
+                <div class="col-6 d-xl-block d-none">
                     <div class="content_jumbo_left">
                         <img src="/img/jumbo_hamburger.png" alt="Deliveboo">
                     </div>
                 </div>
-                <div class="col-9">
-                    <div class="content_jumbo_right text-center pt-5 float-end">
+                <div class="col-12 col-xl-6 m-auto">
+                    <div class="content_jumbo_right pt-5">
                         <div class="jumbo_text text-center">
                             <h1>Welcome to</h1>
                             <div>
