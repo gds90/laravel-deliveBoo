@@ -14,7 +14,7 @@
                     <strong class="open-sans fs-5">Inserisci i tuoi dati personali:</strong>
 
                     <div class="mb-4 mt-3">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">Nome e cognome:</label>
+                        <label for="name" class="col-12 col-form-label text-md-right">Nome e cognome:</label>
 
                         <div>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">Indirizzo
+                        <label for="email" class="col-12 col-form-label text-md-right">Indirizzo
                             e-mail:</label>
 
                         <div>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <label for="password" class="col-12 col-form-label text-md-right">{{ __('Password') }}</label>
 
                         <div>
                             <input id="password" type="password"
@@ -64,7 +64,7 @@
 
                     <div class="mb-4">
                         <label for="password-confirm"
-                            class="col-md-4 col-form-label text-md-right">{{ __('Conferma password') }}</label>
+                            class="col-12 col-form-label text-md-right">{{ __('Conferma password') }}</label>
 
                         <div>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
@@ -78,7 +78,7 @@
                     <strong class="open-sans fs-5">Inserisci i dati del Ristorante:</strong>
 
                     <div class="mb-4 mt-3">
-                        <label for="restaurantName" class="col-md-4 col-form-label text-md-right">Nome
+                        <label for="restaurantName" class="col-12 col-form-label text-md-right">Nome
                             ristorante:</label>
 
                         <div>
@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="p_iva" class="col-md-4 col-form-label text-md-right">Partita IVA:</label>
+                        <label for="p_iva" class="col-md-6 col-form-label text-md-right">Partita IVA:</label>
 
                         <div>
                             <input id="p_iva" type="text" class="form-control" name="p_iva"
@@ -104,7 +104,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="address" class="col-md-4 col-form-label text-md-right">Indirizzo:</label>
+                        <label for="address" class="col-12 col-form-label text-md-right">Indirizzo:</label>
 
                         <div>
                             <input id="address" type="text" class="form-control" name="address"
@@ -117,7 +117,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="cover_image" class="col-md-4 col-form-label text-md-right">Immagine di
+                        <label for="cover_image" class="col-12 col-form-label text-md-right">Immagine di
                             copertina:</label>
 
                         <div>
@@ -176,7 +176,7 @@
                                 @csrf
                                 
                                 <div class="mb-4 row">
-                                    <label for="name" class="col-md-4 col-form-label text-md-right">Nome e cognome:</label>
+                                    <label for="name" class="col-12 col-form-label text-md-right">Nome e cognome:</label>
                                     
                                     <div class="col-md-6">
                                         <input id="name" type="text"
