@@ -18,7 +18,7 @@
 
                         <div>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                                name="name" value="{{ old('name') }}" required autocomplete="name"
                                 placeholder="Inserisci nome e cognome">
 
                             @error('name')
@@ -83,7 +83,7 @@
 
                         <div>
                             <input id="restaurantName" type="text" class="form-control" name="restaurantName"
-                                value="{{ old('restaurantName') }}" required autocomplete="name" autofocus
+                                value="{{ old('restaurantName') }}" required autocomplete="name"
                                 placeholder="Inserisci il nome della tua attività">
                         </div>
                         @error('restaurantName')
@@ -96,7 +96,7 @@
 
                         <div>
                             <input id="p_iva" type="text" class="form-control" name="p_iva"
-                                value="{{ old('p_iva') }}" required autocomplete="p_iva" autofocus
+                                value="{{ old('p_iva') }}" required autocomplete="p_iva"
                                 placeholder="Inserisci la tua partita IVA">
                         </div>
                         @error('p_iva')
@@ -108,7 +108,7 @@
 
                         <div>
                             <input id="address" type="text" class="form-control" name="address"
-                                value="{{ old('address') }}" required autocomplete="address" autofocus
+                                value="{{ old('address') }}" required autocomplete="address"
                                 placeholder="Inserisci l'indirizzo della tua attività">
                         </div>
                         @error('address')
@@ -181,7 +181,7 @@
                                     <div class="col-md-6">
                                         <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus
+                                        value="{{ old('name') }}" required autocomplete="name" 
                                         placeholder="Inserisci nome e cognome">
                                         
                                         @error('name')
