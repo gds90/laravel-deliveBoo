@@ -235,7 +235,7 @@ document.forms['registrationForm'].addEventListener('submit', function (event) {
     }
 
     // Invia il modulo se non ci sono errori
-    if (document.getElementById('registration-errors').children.length === 0) {
+    if (document.getElementById('form-errors').children.length === 0) {
         this.submit();
     }
 
