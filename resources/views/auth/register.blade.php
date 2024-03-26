@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" id="registrationForm">
         @csrf
         <div class="container p-5">
             <div class="row justify-content-center">
+
+                <div id="registration-errors" class="errors"></div>
 
                 <div class="col-12 text-warning mb-4">
                     <h1>Registrazione</h1>
