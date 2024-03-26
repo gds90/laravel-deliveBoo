@@ -240,6 +240,181 @@ document.forms['registrationForm'].addEventListener('submit', function (event) {
     }
 
 });
+document.forms['storeForm'].addEventListener('submit', function (event) {
+    // Prevenire il comportamento predefinito dell'evento di invio del modulo
+    event.preventDefault();
+    // Pulisci i messaggi di errore precedenti
+    document.getElementById('form-errors').innerHTML = '';
+    // Effettua la validazione dei campi del modulo
+    let nameValue = this.elements['name'].value.trim();
+    if (nameValue === '') {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Il Nome del piatto è obbligatiorio');
+    }
+
+    if (nameValue.length > 50) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Nome non puo essere piu lungho di 50 caratteri.')
+    }
+
+    if (nameValue.length < 3) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Nome non puo essere piu corto di 3 caratteri.')
+    }
+    // Effettua la validazione dei campi del modulo
+    let descriptionValue = this.elements['description'].value.trim();
+    if (descriptionValue === '') {
+        // Visualizza un messaggio di errore
+        addErrorMessage('La descrizione del piatto è obbligatiorio');
+
+    }
+
+    if (descriptionValue.length > 255) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('La descrizione non puo essere piu lungho di 255 caratteri.')
+
+    }
+
+    if (descriptionValue.length < 100) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('La descrizione non puo essere piu corto di 10 caratteri.')
+
+    }
+
+    let priceValue = this.elements['price'].value.trim();
+
+    if (priceValue === '') {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Il prezzo del piatto è obbligatiorio');
+
+    }
+
+    if (priceValue.isFloat(price, { min: 0, max: 99.99 })) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Il prezzo non puo essere maggiore di 100.')
+    }
+
+    let imgValue = this.elements['cover_image'];
+    let file = imgValue.files[0]
+
+
+    // Verifica il tipo di file
+    let allowedTypes = ['image/jpeg', 'image/png']; // Formati accettati
+    if (!allowedTypes.includes(file.type)) {
+
+        // Visualizza un messaggio di errore
+        addErrorMessage('Scegli un file di tipo immagine (JPEG, PNG).');
+
+    }
+
+    // Verifica la dimensione del file
+    let maxSizeMB = 2; // Dimensione massima del file consentita in MB
+    let maxSizeBytes = maxSizeMB * 1024 * 1024; // Converti MB in bytes
+    if (file.size > maxSizeBytes) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Il file selezionato è troppo grande.');
+    }
+
+
+
+    // Invia il modulo se non ci sono errori
+    if (document.getElementById('form-errors').children.length === 0) {
+        this.submit();
+    }
+
+});
+
+
+document.forms['updateForm'].addEventListener('submit', function (event) {
+    // Prevenire il comportamento predefinito dell'evento di invio del modulo
+    event.preventDefault();
+
+    // Pulisci i messaggi di errore precedenti
+    document.getElementById('form-errors').innerHTML = '';
+
+    // Effettua la validazione dei campi del modulo
+
+    let nameValue = this.elements['name'].value.trim();
+
+    if (nameValue === '') {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Il Nome del piatto è obbligatiorio');
+    }
+
+    if (nameValue.length > 50) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Nome non puo essere piu lungho di 50 caratteri.')
+    }
+
+    if (nameValue.length < 3) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Nome non puo essere piu corto di 3 caratteri.')
+
+    }
+    // Effettua la validazione dei campi del modulo
+
+    let descriptionValue = this.elements['description'].value.trim();
+
+    if (descriptionValue === '') {
+        // Visualizza un messaggio di errore
+        addErrorMessage('La descrizione del piatto è obbligatiorio');
+
+    }
+
+    if (descriptionValue.length > 255) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('La descrizione non puo essere piu lungho di 255 caratteri.')
+
+    }
+
+    if (descriptionValue.length < 100) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('La descrizione non puo essere piu corto di 10 caratteri.')
+
+    }
+
+    let priceValue = this.elements['price'].value.trim();
+
+    if (priceValue === '') {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Il prezzo del piatto è obbligatiorio');
+
+    }
+
+    if (priceValue.isFloat(price, { min: 0, max: 99.99 })) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Il prezzo non puo essere maggiore di 100.')
+    }
+
+    let imgValue = this.elements['cover_image'];
+    let file = imgValue.files[0]
+
+
+    // Verifica il tipo di file
+    let allowedTypes = ['image/jpeg', 'image/png']; // Formati accettati
+    if (!allowedTypes.includes(file.type)) {
+
+        // Visualizza un messaggio di errore
+        addErrorMessage('Scegli un file di tipo immagine (JPEG, PNG).');
+
+    }
+
+    // Verifica la dimensione del file
+    let maxSizeMB = 2; // Dimensione massima del file consentita in MB
+    let maxSizeBytes = maxSizeMB * 1024 * 1024; // Converti MB in bytes
+    if (file.size > maxSizeBytes) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Il file selezionato è troppo grande.');
+    }
+
+
+
+    // Invia il modulo se non ci sono errori
+    if (document.getElementById('form-errors').children.length === 0) {
+        this.submit();
+    }
+
+});
 
 function addErrorMessage(message) {
     let errorDiv = document.getElementById('form-errors');
