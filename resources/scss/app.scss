@@ -29,6 +29,11 @@ body {
     background: radial-gradient(circle, rgba(253, 243, 209, 1) 0%, rgba(245, 195, 68, 1) 0%, rgba(253, 243, 209, 1) 100%);
 }
 
+.bg_footer {
+    background: rgb(148, 218, 251);
+    background: linear-gradient(0deg, rgba(148, 218, 251, 1) 0%, rgba(28, 48, 93, 1) 100%);
+}
+
 .text_blue_primary {
     color: rgb(21, 49, 96);
 }
