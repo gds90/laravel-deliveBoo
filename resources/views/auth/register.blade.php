@@ -152,7 +152,7 @@
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body d-flex flex-wrap gap-2">
                                     @foreach ($types as $type)
-                                        <div class="col-6 col-md-3">
+                                        <div class="col-5 col-md-3">
                                             <input type="checkbox" class="form-check-input" name="type[]"
                                                 id="type-{{ $type->id }}" value="{{ $type->id }}"
                                                 {{ in_array($type->id, old('type', [])) ? 'checked' : '' }}>
