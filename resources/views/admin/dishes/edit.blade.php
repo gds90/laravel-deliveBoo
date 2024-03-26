@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="POST" action="{{ route('admin.dishes.update', $dish->slug) }}" enctype="multipart/form-data">
+    <form id="updateForm" method="POST" action="{{ route('admin.dishes.update', $dish->slug) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="container py-5">
             <div class="row justify-content-center">
-
+                <div id="form-errors" class="text-warning open-sans mb-4 d-flex flex-column gap-2"></div>
                 <div class="col-12 text-warning mb-4">
                     <h1>Stai modificando il piatto: <span class="open-sans text-white ms-2">{{ $dish->name }}</span></h1>
                 </div>

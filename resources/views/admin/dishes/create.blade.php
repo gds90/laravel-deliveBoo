@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
+    <form id="storeForm" method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
         @csrf
 
         <div class="container py-5">
             <div class="row justify-content-center">
+                <div id="form-errors" class="text-warning open-sans mb-4 d-flex flex-column gap-2"></div>
                 <div class="col-12 text-warning mb-4">
                     <h1>Aggiungi un nuovo piatto</h1>
                 </div>
