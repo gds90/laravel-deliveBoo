@@ -37,7 +37,14 @@
                                     <td class="text-secondary-emphasis fw-bold ">{{ $dish->name }}</td>
                                     <td class="text-secondary-emphasis ">{{ $dish->description }}</td>
                                     <td class="text-secondary-emphasis ">{{ $dish->price }}€</td>
-                                    <td><img src="/storage/{{ $dish->cover_image }}" class="w-50"></img></td>
+                                    <td>
+                                        @if ($dish->cover_image)
+                                            <img src="/storage/{{ $dish->cover_image }}" class="w-50 img-fluid"></img>
+                                        @else
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpjVJ95QK9Z7ppeuEptxKb-QhLhdKkx6XbzuVd90YuJaJavpvQ2qTxDDpkH95m4A3Jbj8&usqp=CAU"
+                                                alt="{{ $dish->name }}" class="img-fluid w-50">
+                                        @endif
+                                    </td>
                                     <td class="text-secondary-emphasis ">
                                         @if ($dish->category)
                                             {{ $dish->category->name }}

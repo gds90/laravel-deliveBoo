@@ -142,7 +142,7 @@ class DishController extends Controller
 
             $error_message = 'Non hai il permesso per modificare questo piatto';
             // Se l'utente non è autorizzato, restituisci un errore o reindirizza a una pagina di errore
-            return redirect()->route('login')->with('error_message', $error_message);
+            return redirect()->route('admin.dishes.index')->with('error_message', $error_message);
         }
 
         if (!empty($request->all())) {
@@ -249,4 +249,15 @@ class DishController extends Controller
 
         return redirect()->route('admin.dishes.index');
     }
+
+
+    // Funzione per recuperare i piatti cancellati in softDelete
+
+    // public function restorePost($id)
+    // {
+    //     $post = Post::withTrashed()->find($id);
+    //     $post->restore(); // This restores the soft-deleted post
+
+    //     // Additional logic...
+    // }
 }
