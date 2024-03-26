@@ -223,7 +223,7 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4 open-sans" style="background-color: rgba(0, 0, 0, 0.05);">
+    <div class="text-center text-white p-4 open-sans" style="background-color: rgba(0, 0, 0, 0.05);">
         © 2024 Copyright:
         <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Deliveboo.com</a>
     </div>
