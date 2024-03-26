@@ -6,17 +6,20 @@
         <div class="container p-5">
             <div class="row justify-content-center">
 
-                <div id="registration-errors" class="text-warning"></div>
+                <div id="form-errors" class="text-warning open-sans mb-4 d-flex flex-column gap-2"></div>
 
                 <div class="col-12 text-warning mb-4">
                     <h1>Registrazione</h1>
+                    <p class="open-sans fw-semibold text-white">I campi contrassegnati con * sono obbligatori
+                    </p>
                 </div>
 
                 <div class="col-12 col-md-6 text-white">
                     <strong class="open-sans fs-5">Inserisci i tuoi dati personali:</strong>
 
                     <div class="mb-4 mt-3">
-                        <label for="name" class="col-12 col-form-label open-sans text-md-right">Nome e cognome:</label>
+                        <label for="name" class="col-12 col-form-label open-sans text-md-right">Nome e cognome:
+                            *</label>
 
                         <div>
                             <input id="name" type="text"
@@ -34,7 +37,7 @@
 
                     <div class="mb-4">
                         <label for="email" class="col-12 col-form-label open-sans text-md-right">Indirizzo
-                            e-mail:</label>
+                            e-mail: *</label>
 
                         <div>
                             <input id="email" type="email"
@@ -51,8 +54,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="password"
-                            class="col-12 col-form-label open-sans text-md-right">{{ __('Password') }}</label>
+                        <label for="password" class="col-12 col-form-label open-sans text-md-right">Password: *</label>
 
                         <div>
                             <input id="password" type="password"
@@ -68,8 +70,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="password-confirm"
-                            class="col-12 col-form-label open-sans text-md-right">{{ __('Conferma password') }}</label>
+                        <label for="password-confirm" class="col-12 col-form-label open-sans text-md-right">Conferma
+                            Password: *</label>
 
                         <div>
                             <input id="password-confirm" type="password" class="form-control open-sans"
@@ -85,7 +87,7 @@
 
                     <div class="mb-4 mt-3">
                         <label for="restaurantName" class="col-12 col-form-label open-sans text-md-right">Nome
-                            ristorante:</label>
+                            ristorante: *</label>
 
                         <div>
                             <input id="restaurantName" type="text" class="form-control open-sans" name="restaurantName"
@@ -98,7 +100,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="p_iva" class="col-md-6 col-form-label open-sans text-md-right">Partita IVA:</label>
+                        <label for="p_iva" class="col-md-6 col-form-label open-sans text-md-right">Partita IVA: *</label>
 
                         <div>
                             <input id="p_iva" type="text" class="form-control open-sans" name="p_iva"
@@ -110,7 +112,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="address" class="col-12 col-form-label open-sans text-md-right">Indirizzo:</label>
+                        <label for="address" class="col-12 col-form-label open-sans text-md-right">Indirizzo: *</label>
 
                         <div>
                             <input id="address" type="text" class="form-control open-sans" name="address"
@@ -124,7 +126,7 @@
 
                     <div class="mb-4">
                         <label for="cover_image" class="col-12 col-form-label open-sans text-md-right">Immagine di
-                            copertina:</label>
+                            copertina: *</label>
 
                         <div>
                             <input type="file" name="cover_image" id="cover_image" class="form-control open-sans">
@@ -135,7 +137,7 @@
                     </div>
                     <div class="mb-4 ">
                         <label for="accordionExample" class=" form-label open-sans text-white ">Aggiungi il tipo di
-                            attività:
+                            attività: *
                         </label>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
