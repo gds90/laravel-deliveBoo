@@ -134,39 +134,38 @@ document.forms['storeForm'].addEventListener('submit', function (event) {
     if (nameValue === '') {
         // Visualizza un messaggio di errore
         addErrorMessage('Il Nome del piatto è obbligatiorio');
-        // Impedi l'invio del modulo
-        return false;
     }
 
-    if (nameValue.length > 100) {
+    if (nameValue.length > 50) {
         // Visualizza un messaggio di errore
-        addErrorMessage('Nome e cognome non possono essere più lunghi di 100 caratteri.')
-        // Impedi l'invio del modulo
-        return false;
+        addErrorMessage('Nome non puo essere pi lungho di 50 caratteri.')
     }
 
+    if (nameValue.length < 3) {
+        // Visualizza un messaggio di errore
+        addErrorMessage('Nome non puo essere piu corto di 3 caratteri.')
+
+    }
     // Effettua la validazione dei campi del modulo
-    let mailValue = this.elements['email'].value.trim();
 
-    if (mailValue === '') {
+    let descriptionValue = this.elements['description'].value.trim();
+
+    if (descriptionValue === '') {
         // Visualizza un messaggio di errore
-        addErrorMessage('L\'Email è obbligatoria.');
-        // Impedi l'invio del modulo
-        return false;
+        addErrorMessage('La descrizione del piatto è obbligatiorio');
+
     }
 
-    if (!mailValue.includes('@')) {
+    if (descriptionValue.length > 50) {
         // Visualizza un messaggio di errore
-        addErrorMessage('Inserisci un indirizzo mail valido.');
-        // Impedi l'invio del modulo
-        return false;
+        addErrorMessage('La descrizione non puo essere pi lungho di 255 caratteri.')
+
     }
 
-    if (mailValue.length > 100) {
+    if (descriptionValue.length < 3) {
         // Visualizza un messaggio di errore
-        addErrorMessage('L\'indirizzo email non può essere più lungo di 100 caratteri.')
-        // Impedi l'invio del modulo
-        return false;
+        addErrorMessage('La descrizione non puo essere piu corto di 10 caratteri.')
+
     }
 
     // Effettua la validazione dei campi del modulo
