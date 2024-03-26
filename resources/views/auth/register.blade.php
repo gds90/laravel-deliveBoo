@@ -130,7 +130,7 @@
                 </div>
 
 
-                <div class="col-12 col-md-6 d-flex align-items-end">
+                <div class="col-12 col-md-6 d-flex align-items-end order-1 order-md-0">
                     <div class="w-100">
                         <button type="submit" class="btn btn-lg btn-outline-warning w-100">
                             Registrati
@@ -138,7 +138,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 order-0 order-md-1 mb-4 mb-md-0">
                     <label for="accordionExample" class=" form-label text-white ">Aggiungi il tipo di attività: </label>
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
@@ -152,7 +152,7 @@
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body d-flex flex-wrap gap-2">
                                     @foreach ($types as $type)
-                                        <div class="col-3">
+                                        <div class="col-6 col-md-3">
                                             <input type="checkbox" class="form-check-input" name="type[]"
                                                 id="type-{{ $type->id }}" value="{{ $type->id }}"
                                                 {{ in_array($type->id, old('type', [])) ? 'checked' : '' }}>
