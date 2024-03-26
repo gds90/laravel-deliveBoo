@@ -35,7 +35,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-warning shadow">
+        <nav class="navbar navbar-expand-md navbar-light bg-warning shadow fixed-top">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center justify-content-start" href="{{ url('/') }}">
 
