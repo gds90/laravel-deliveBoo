@@ -304,7 +304,7 @@ function handleFormSubmission(event) {
 
         }
 
-        if (descriptionValue.length < 100) {
+        if (descriptionValue.length < 10) {
             // Visualizza un messaggio di errore
             addErrorMessage(formId, 'La descrizione non puo essere piu corto di 10 caratteri.')
 
@@ -385,7 +385,7 @@ function handleFormSubmission(event) {
 
         }
 
-        if (descriptionValue.length < 100) {
+        if (descriptionValue.length < 10) {
             // Visualizza un messaggio di errore
             addErrorMessage(formId, 'La descrizione non puo essere piu corto di 10 caratteri.')
 
