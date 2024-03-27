@@ -5,6 +5,13 @@ import.meta.glob([
     '../img/**'
 ])
 
+// Funzione per verificare se il valore è un numero float valido compreso tra min e max
+function isValidFloat(value, min, max) {
+    const floatValue = parseFloat(value);
+    return !isNaN(floatValue) && floatValue >= min && floatValue <= max;
+}
+
+
 // Attendi il caricamento completo del documento
 document.addEventListener('DOMContentLoaded', function () {
     // Seleziona tutti i moduli che devono essere validati
@@ -311,30 +318,31 @@ function handleFormSubmission(event) {
 
         }
 
-        if (priceValue.isFloat(price, { min: 0, max: 99.99 })) {
+        if (!isValidFloat(priceValue, 0, 99.99)) {
             // Visualizza un messaggio di errore
-            addErrorMessage(formId, 'Il prezzo non puo essere maggiore di 100.')
+            addErrorMessage(formId, 'Il prezzo deve essere un numero compreso tra 0 e 99.99');
         }
 
         let imgValue = this.elements['cover_image'];
         let file = imgValue.files[0]
 
 
-        // Verifica il tipo di file
-        let allowedTypes = ['image/jpeg', 'image/png']; // Formati accettati
-        if (!allowedTypes.includes(file.type)) {
+        // Verifica se è stato selezionato un file
+        if (file) {
+            // Verifica il tipo di file solo se è stato selezionato un file
+            let allowedTypes = ['image/jpeg', 'image/png']; // Formati accettati
+            if (!allowedTypes.includes(file.type)) {
+                // Visualizza un messaggio di errore
+                addErrorMessage(formId, 'Scegli un file di tipo immagine (JPEG, PNG).');
+            }
 
-            // Visualizza un messaggio di errore
-            addErrorMessage(formId, 'Scegli un file di tipo immagine (JPEG, PNG).');
-
-        }
-
-        // Verifica la dimensione del file
-        let maxSizeMB = 2; // Dimensione massima del file consentita in MB
-        let maxSizeBytes = maxSizeMB * 1024 * 1024; // Converti MB in bytes
-        if (file.size > maxSizeBytes) {
-            // Visualizza un messaggio di errore
-            addErrorMessage(formId, 'Il file selezionato è troppo grande.');
+            // Verifica la dimensione del file solo se è stato selezionato un file
+            let maxSizeMB = 2; // Dimensione massima del file consentita in MB
+            let maxSizeBytes = maxSizeMB * 1024 * 1024; // Converti MB in bytes
+            if (file.size > maxSizeBytes) {
+                // Visualizza un messaggio di errore
+                addErrorMessage(formId, 'Il file selezionato è troppo grande.');
+            }
         }
 
     }
@@ -391,35 +399,37 @@ function handleFormSubmission(event) {
 
         }
 
-        if (priceValue.isFloat(price, { min: 0, max: 99.99 })) {
+        if (!isValidFloat(priceValue, 0, 99.99)) {
             // Visualizza un messaggio di errore
-            addErrorMessage(formId, 'Il prezzo non puo essere maggiore di 100.')
+            addErrorMessage(formId, 'Il prezzo deve essere un numero compreso tra 0 e 99.99');
         }
 
         let imgValue = this.elements['cover_image'];
         let file = imgValue.files[0]
 
 
-        // Verifica il tipo di file
-        let allowedTypes = ['image/jpeg', 'image/png']; // Formati accettati
-        if (!allowedTypes.includes(file.type)) {
+        // Verifica se è stato selezionato un file
+        if (file) {
+            // Verifica il tipo di file solo se è stato selezionato un file
+            let allowedTypes = ['image/jpeg', 'image/png']; // Formati accettati
+            if (!allowedTypes.includes(file.type)) {
+                // Visualizza un messaggio di errore
+                addErrorMessage(formId, 'Scegli un file di tipo immagine (JPEG, PNG).');
+            }
 
-            // Visualizza un messaggio di errore
-            addErrorMessage(formId, 'Scegli un file di tipo immagine (JPEG, PNG).');
-
-        }
-
-        // Verifica la dimensione del file
-        let maxSizeMB = 2; // Dimensione massima del file consentita in MB
-        let maxSizeBytes = maxSizeMB * 1024 * 1024; // Converti MB in bytes
-        if (file.size > maxSizeBytes) {
-            // Visualizza un messaggio di errore
-            addErrorMessage(formId, 'Il file selezionato è troppo grande.');
+            // Verifica la dimensione del file solo se è stato selezionato un file
+            let maxSizeMB = 2; // Dimensione massima del file consentita in MB
+            let maxSizeBytes = maxSizeMB * 1024 * 1024; // Converti MB in bytes
+            if (file.size > maxSizeBytes) {
+                // Visualizza un messaggio di errore
+                addErrorMessage(formId, 'Il file selezionato è troppo grande.');
+            }
         }
 
     }
 
 
+    console.log(errorDiv);
     // Invia il modulo se non ci sono errori
     if (errorDiv.children.length === 0) {
         this.submit();

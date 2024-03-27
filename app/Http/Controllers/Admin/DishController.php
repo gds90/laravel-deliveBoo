@@ -179,16 +179,19 @@ class DishController extends Controller
         // recupero i dati inviati dalla form
         $form_data = $request->all();
 
-        // controllo che non esista un altro piatto con lo stesso nome passato dal form di modifica
-        $exists = Dish::where('name', 'LIKE', $form_data['name'])
-            ->where('id', '!=', $dish->id)
-            ->where('restaurant_id', $user->restaurant->id)
-            ->get();
+        // Controllo se il nome è stato modificato
+        if ($form_data['name'] !== $dish->name) {
+            $exists = Dish::where('name', 'LIKE', $form_data['name'])
+                ->where('restaurant_id', $user->restaurant->id)
+                ->where('id', '!=', $dish->id)
+                ->exists();
 
-        if (count($exists) > 0) {
-            $error_message = 'Hai inserito un nome di un piatto già esistente';
-            return redirect()->route('admin.dishes.edit', compact('dish', 'error_message'));
+            if ($exists) {
+                $error_message = 'Hai inserito un nome di un piatto già esistente';
+                return redirect()->route('admin.dishes.edit', compact('dish', 'error_message'));
+            }
         }
+
 
         // verifico se la richiesta contiene una nuova immagine
         if ($request->hasFile('cover_image')) {

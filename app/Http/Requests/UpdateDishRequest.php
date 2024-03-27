@@ -33,7 +33,7 @@ class UpdateDishRequest extends FormRequest
                 'max:50',
                 Rule::unique('dishes')->where(function ($query) use ($restaurantId) {
                     return $query->where('restaurant_id', $restaurantId);
-                }),
+                })->ignore($this->dish->id),
             ],
             'description' => 'required|string|min:10|max:255',
             'cover_image' => 'nullable|image|max:2048', // 2MB Max
