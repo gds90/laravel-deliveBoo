@@ -6,9 +6,11 @@
 
         <div class="container py-5">
             <div class="row justify-content-center">
-                <div id="form-errors" class="text-warning open-sans mb-4 d-flex flex-column gap-2"></div>
+                <div id="storeForm-errors" class="text-warning open-sans mb-4 d-flex flex-column gap-2"></div>
                 <div class="col-12 text-warning mb-4">
                     <h1>Aggiungi un nuovo piatto</h1>
+                    <p class="open-sans fw-semibold text-white">I campi contrassegnati con * sono obbligatori
+                    </p>
                 </div>
                 <div class="col-6 text-white">
 
@@ -29,7 +31,7 @@
                 <div class="col-6 text-white">
 
                     <div class="form-group mb-2">
-                        <label for="name" class="control-label m-1 open-sans">Nome</label>
+                        <label for="name" class="control-label m-1 open-sans">Nome: *</label>
                         <input type="text" class="open-sans form-control @error('name') is-invalid @enderror"
                             id="name" name="name" placeholder="Nome del piatto" value="{{ old('name') }}"
                             required>
@@ -39,7 +41,7 @@
                     </div>
 
                     <div class="form-group mb-2">
-                        <label for="description" class="control-label m-1 open-sans">Descrizione</label>
+                        <label for="description" class="control-label m-1 open-sans">Descrizione: *</label>
                         <textarea name="description" id="description" class="open-sans form-control @error('description') is-invalid @enderror"
                             placeholder="Inserisci qui la descrizione del piatto" cols="100" rows="5" required>{{ old('description') }}</textarea>
                         @error('description')
@@ -48,7 +50,7 @@
                     </div>
 
                     <div class="form-group mb-2">
-                        <label for="price" class="control-label m-1 open-sans">Prezzo</label>
+                        <label for="price" class="control-label m-1 open-sans">Prezzo: *</label>
                         <input type="number" step="0.01" min="0"
                             class="open-sans form-control @error('price') is-invalid @enderror" id="price"
                             name="price" placeholder="Inserisci il prezzo del piatto" value="{{ old('price') }}"required>
@@ -58,7 +60,7 @@
                     </div>
 
                     <div class="form-group mb-2">
-                        <label for="category_id" class="control-label m-1 open-sans">Categoria del piatto</label>
+                        <label for="category_id" class="control-label m-1 open-sans">Categoria del piatto:</label>
                         <select class="open-sans form-select @error('category_id') is-invalid @enderror" id="category_id"
                             name="category_id">
                             <option value="">Seleziona una categoria</option>

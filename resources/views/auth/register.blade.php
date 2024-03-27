@@ -6,7 +6,7 @@
         <div class="container p-5">
             <div class="row justify-content-center">
 
-                <div id="form-errors" class="text-warning open-sans mb-4 d-flex flex-column gap-2"></div>
+                <div id="registrationForm-errors" class="text-warning open-sans mb-4 d-flex flex-column gap-2"></div>
 
                 <div class="col-12 text-warning mb-4">
                     <h1>Registrazione</h1>

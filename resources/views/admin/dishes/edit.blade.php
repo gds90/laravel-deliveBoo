@@ -6,16 +6,18 @@
         @method('PUT')
         <div class="container py-5">
             <div class="row justify-content-center">
-                <div id="form-errors" class="text-warning open-sans mb-4 d-flex flex-column gap-2"></div>
+                <div id="updateForm-errors" class="text-warning open-sans mb-4 d-flex flex-column gap-2"></div>
                 <div class="col-12 text-warning mb-4">
                     <h1>Stai modificando il piatto: <span class="open-sans text-white ms-2">{{ $dish->name }}</span></h1>
+                    <p class="open-sans fw-semibold text-white">I campi contrassegnati con * sono obbligatori
+                    </p>
                 </div>
 
                 <div class="col-12 col-md-6 text-white">
 
                     <div class="form-group">
 
-                        <label for="cover_image" class=" control-label mb-4 open-sans  ">Immagine di copertina:</label>
+                        <label for="cover_image" class=" control-label mb-4 open-sans  ">Immagine di copertina: </label>
 
                         <div class="my-1">
                             @if ($dish->cover_image != null)
@@ -40,7 +42,7 @@
                 <div class="col-12 col-md-6 text-white">
 
                     <div class="form-group mb-2">
-                        <label for="name" class="control-label m-1">Nome</label>
+                        <label for="name" class="control-label m-1">Nome: *</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                             name="name" value="{{ $dish->name }}" required>
                         @if ($error_message != '')
@@ -54,7 +56,7 @@
                     </div>
 
                     <div class="form-group mb-2">
-                        <label for="description" class="m-1">Descrizione</label>
+                        <label for="description" class="m-1">Descrizione: *</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
                             rows="3" required>{{ old('description') ?? $dish->description }}</textarea>
                         @error('description')
@@ -63,7 +65,7 @@
                     </div>
 
                     <div class="form-group mb-2">
-                        <label for="price" class="m-1">Prezzo</label>
+                        <label for="price" class="m-1">Prezzo: *</label>
                         <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror"
                             id="price" name="price" value="{{ $dish->price }}" required>
                         @error('price')
