@@ -23,7 +23,20 @@ class RestaurantController extends Controller
 
     public function show($slug)
     {
-        //
+        // recupero il ristorante attraverso il parametro slug
+        $restaurant = Restaurant::with('types', 'dishes')->where('slug', $slug)->first();
+
+        // se il ristorante esiste
+        if ($restaurant) {
+            return response()->json([
+                'success' => true,
+                'restaurant' => $restaurant
+            ]);
+        }
+        // se il ristorante non esiste
+        return response()->json([
+            'success' => false
+        ]);
     }
 
     public function get_type_restaurants($slug)
