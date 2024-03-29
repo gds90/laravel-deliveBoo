@@ -116,7 +116,7 @@ class DishController extends Controller
         if ($dish->restaurant->user_id !== $user->id) {
 
 
-            $error_message = 'Non hai il permesso per visualizzare questo piatto.';
+            $error_message = 'Pagina non trovata';
             // Se l'utente non è autorizzato, restituisci un errore o reindirizza a una pagina di errore
             return redirect()->route('admin.dishes.index')->with('error_message', $error_message);
         }
@@ -140,7 +140,7 @@ class DishController extends Controller
         // Verifica se l'utente ha il permesso di modificare questo piatto
         if ($dish->restaurant->user_id !== $user->id) {
 
-            $error_message = 'Non hai il permesso per modificare questo piatto';
+            $error_message = 'Pagina non trovata';
             // Se l'utente non è autorizzato, restituisci un errore o reindirizza a una pagina di errore
             return redirect()->route('admin.dishes.index')->with('error_message', $error_message);
         }
@@ -171,7 +171,7 @@ class DishController extends Controller
 
         // Verifica se l'utente ha il permesso di modificare questo piatto
         if ($dish->restaurant->user_id !== $user->id) {
-            $error_message = 'Non hai il permesso per modificare questo piatto';
+            $error_message = 'Pagina non trovata';
             // Se l'utente non è autorizzato, restituisci un errore o reindirizza a una pagina di errore
             return redirect()->route('admin.dishes.index')->with('error_message', $error_message);
         }

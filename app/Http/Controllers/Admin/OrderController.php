@@ -25,7 +25,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +36,19 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $orderData = $request->all();
+
+        // Esempio di creazione di un nuovo ordine utilizzando il modello
+        $order = Order::create([
+            'user_id' => $orderData['user_id'],
+            'restaurant_id' => $orderData['restaurant_id'],
+            'total_amount' => $orderData['total_amount'],
+            'status' => 'pending' // Puoi impostare uno stato predefinito per il nuovo ordine
+        ]);
+
+        // Salva i dettagli dell'ordine, come i piatti, nella tabella degli ordini correlati, se necessario
+
+        return response()->json(['message' => 'Ordine salvato con successo', 'order' => $order]);
     }
 
     /**
