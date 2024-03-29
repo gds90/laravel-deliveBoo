@@ -21,7 +21,7 @@
                     <table class="table table-warning roundedTable">
                         <thead>
                             <tr class="">
-                                <th scope="col" class="fw-light fs-5">#</th>
+                                {{-- <th scope="col" class="fw-light fs-5">#</th> --}}
                                 <th scope="col" class="fw-light fs-5">Nome</th>
                                 <th scope="col" class="fw-light fs-5">Descrizione</th>
                                 <th scope="col" class="fw-light fs-5">Prezzo</th>
@@ -33,7 +33,7 @@
                         <tbody>
                             @foreach ($dishes as $dish)
                                 <tr class="open-sans">
-                                    <th class="text-secondary-emphasis ">{{ $dish->id }}</th>
+                                    {{-- <th class="text-secondary-emphasis ">{{ $dish->id }}</th> --}}
                                     <td class="text-secondary-emphasis fw-bold ">{{ $dish->name }}</td>
                                     <td class="text-secondary-emphasis ">{{ $dish->description }}</td>
                                     <td class="text-secondary-emphasis ">{{ $dish->price }}€</td>
