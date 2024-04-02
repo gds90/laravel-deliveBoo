@@ -170,20 +170,21 @@
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase text-warning mb-4 fs-5">
-                        LISTA FOOTER 1
+                        Per i Ristoratori
                     </h6>
                     <ul class="list-unstyled ">
                         <li>
-                            {{-- <router-link to="/projects" class="text-reset text-decoration-none ">Lista
-                                completa</router-link> --}}
-                            Elemento1
+                            <a href="#!" class="text-reset text-decoration-none">Diventa un Partner</a>
                         </li>
-                        <li>
-                            {{-- <router-link to="/technology/html"
-                                class="text-reset text-decoration-none ">HTML</router-link> --}}
-                            Elemento2
+                        <li class="mt-3">
+                            <a href="#!" class="text-reset text-decoration-none">Registrati</a>
                         </li>
-
+                        <li class="mt-3">
+                            <a href="#!" class="text-reset text-decoration-none">Scopri i Nostri Servizi</a>
+                        </li>
+                        <li class="mt-3">
+                            <a href="#!" class="text-reset text-decoration-none">Domande Frequenti</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- Grid column -->
@@ -191,35 +192,36 @@
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
-                    <h6 class="text-uppercase text-warning fs-5 mb-4">
-                        Link utili
+                    <h6 class="text-uppercase text-warning mb-4 fs-5">
+                        Per i Clienti
                     </h6>
-                    <p>
-                        <a href="#!" class="text-reset  text-decoration-none">Chi siamo</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset  text-decoration-none">I nostri servizi</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset  text-decoration-none">Abbonamenti</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset  text-decoration-none">FAQ</a>
-                    </p>
+                    <ul class="list-unstyled ">
+                        <li>
+                            <a href="#!" class="text-reset text-decoration-none">Crea un Account</a>
+                        </li>
+                        <li class="mt-3">
+                            <a href="#!" class="text-reset text-decoration-none">Cerca Ristoranti</a>
+                        </li>
+                        <li class="mt-3">
+                            <a href="#!" class="text-reset text-decoration-none">Esplora i Menu</a>
+                        </li>
+                        <li class="mt-3">
+                            <a href="#!" class="text-reset text-decoration-none">Assistenza Clienti</a>
+                        </li>
+                    </ul>
                 </div>
-                <!-- Grid column -->
 
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase text-warning mb-4 fs-5">Contatti</h6>
-                    <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                    <p><i class="fas fa-home me-3"></i> Via Roma, 123 - 00100 Roma (RM)</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
                         info@deliveboo.com
                     </p>
-                    <p><i class="fas fa-phone me-3"></i> + 21 274 367 81</p>
-                    <p><i class="fas fa-print me-3"></i> + 21 274 367 29</p>
+                    <p><i class="fas fa-phone me-3"></i> +39 0123 456789</p>
+                    <p><i class="fas fa-globe me-3"></i> www.deliveboo.com</p>
                 </div>
                 <!-- Grid column -->
             </div>
