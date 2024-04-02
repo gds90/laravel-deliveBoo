@@ -31,14 +31,41 @@
             </div>
             <div class="col-10 m-auto col-md-9 text-warning text-center pt-3">
                 @if (Route::currentRouteName() == 'admin.dashboard')
-                    <h2 class="pt-4 fs-1">
-                        <i class="fa-solid fa-arrow-left d-none d-md-inline"></i>
-                        <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                            aria-controls="offcanvasExample"
-                            class="d-inline d-md-none text-decoration-underline text-warning"><span class="ms-2">Scegli
-                                un'opzione dal menù<span></a>
-                        <span class="ms-2 d-none d-md-inline">Scegli un'opzione dal menù<span>
-                    </h2>
+                    @if (isset($restaurant))
+                        <div class="row">
+                            <div class="col-md-6 col-12 d-flex flex-column justify-content-center">
+                                <h1>Il tuo ristorante:</h1>
+                                <div class="text-white my-3">
+                                    <h1 class="fs-1">{{ $restaurant->name }}</h1>
+                                    <p>{{ $restaurant->address }}</p>
+                                    <p class="mt-5">P. IVA: {{ $restaurant->p_iva }}</p>
+                                </div>
+                                <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                                    aria-controls="offcanvasExample"
+                                    class="d-inline d-md-none text-decoration-underline text-warning mb-3"><span>Scegli
+                                        un'opzione dal menù<span></a>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                @if ($restaurant->cover_image)
+                                    <img src="/storage/{{ $restaurant->cover_image }}" alt="{{ $restaurant->name }}"
+                                        class="img-fluid rounded-3">
+                                @else
+                                    <img src="https://www.clipartmax.com/png/middle/213-2131416_restaurant-lamb-clipart-placeholder-image-for-restaurant.png"
+                                        alt="{{ $restaurant->name }}" class="img-fluid">
+                                @endif
+                            </div>
+                        </div>
+                    @else
+                        <h2 class="pt-4 fs-1">
+                            <i class="fa-solid fa-arrow-left d-none d-md-inline"></i>
+                            <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                                aria-controls="offcanvasExample"
+                                class="d-inline d-md-none text-decoration-underline text-warning"><span
+                                    class="ms-2">Scegli
+                                    un'opzione dal menù<span></a>
+                            <span class="ms-2 d-none d-md-inline">Scegli un'opzione dal menù<span>
+                        </h2>
+                    @endif
 
                     <div class="offcanvas offcanvas-start bg_gradient" tabindex="-1" id="offcanvasExample"
                         aria-labelledby="offcanvasExampleLabel">

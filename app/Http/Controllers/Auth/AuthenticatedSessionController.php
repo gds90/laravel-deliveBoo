@@ -29,7 +29,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $user = Auth::user();
+
+        $restaurant = $user->restaurant;
+
+        return redirect()->intended(RouteServiceProvider::HOME)->with('restaurant', $restaurant);
     }
 
     /**
