@@ -23,8 +23,26 @@ class PaymentController extends Controller
 
     public function processPayment(Request $request)
     {
-        $nonce = /* $request->input('payment_method_nonce'); */ 'fake-valid-nonce';
-        $amount = /* $request->input('amount'); */ 12;
+        $nonce = $request->input('paymentMethodNonce');
+
+        $cart = $request->input('cart');
+
+        // modifiche del carrello
+        $amount = 0;
+
+        foreach ($cart as $item) {
+            $id = $item['id'];
+            $restaurant_id = $item['restaurant_id'];
+            $quantity = $item['quantity'];
+            $dish_price = Dish::where('restaurant_id', $restaurant_id)->where('id', $id)->value('price');
+            if ($dish_price) {
+                $amount += (float) $dish_price * $quantity;
+            }
+        }
+
+        $amount = number_format($amount, 2);
+
+        var_dump($amount);
 
         $result = $this->gateway->transaction()->sale([
             'amount' => $amount,
