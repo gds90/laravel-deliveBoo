@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\TypeController;
 use App\Http\Controllers\Api\DishController;
 use App\Http\Controllers\API\PaymentController;
+use App\Http\Controllers\Api\LeadController;
+
 
 
 /*
@@ -34,4 +36,4 @@ Route::get('/restaurant/type/{slug}', [RestaurantController::class, 'get_type_re
 
 Route::get('/type', [TypeController::class, 'index']);
 
-// Route::post('/contacts', [LeadController::class, 'store']);
+Route::post('/contacts', [LeadController::class, 'store']);
