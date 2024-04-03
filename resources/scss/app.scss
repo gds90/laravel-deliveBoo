@@ -22,7 +22,7 @@ body {
 
 .bg_blue_primary {
     background-color: rgb(21, 49, 96);
-    margin-top: 105px;
+    margin-top: 100px;
 }
 
 .bg_gradient {
@@ -57,6 +57,24 @@ body {
 .logo_text {
     img {
         width: 200px;
+    }
+}
+
+.navbar {
+    height: 100px;
+    backdrop-filter: blur(25px);
+    background-color: rgba(245, 195, 68);
+
+    .nav-link {
+        font-size: 20px;
+        opacity: 90%;
+        transition: transform 0.3s;
+        color: rgb(21, 49, 96);
+
+        &:hover {
+            opacity: 100%;
+            transform: scale(1.05);
+        }
     }
 }
 

@@ -41,7 +41,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-warning shadow fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light shadow fixed-top">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center justify-content-start" href="{{ url('/') }}">
 
@@ -64,7 +64,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:5174/">{{ __('Home') }}</a>
+                            <a class="nav-link" href="/"></a>
                         </li>
                     </ul>
 
@@ -73,11 +73,14 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="http://localhost:5174/">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">LOGIN</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">Registrati</a>
+                                    <a class="nav-link" href="{{ route('register') }}">REGISTRATI</a>
                                 </li>
                             @endif
                         @else
@@ -88,8 +91,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right bg-warning " aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                                    <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
                                     {{-- <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a> --}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -118,7 +120,7 @@
     <!-- Section: Social media -->
     <section class="d-flex justify-content-lg-start justify-content-center p-4 border-bottom">
         <!-- Left -->
-        <div class="me-5 d-none d-lg-block text-white ">
+        <div class="me-5 d-none d-lg-block text-white open-sans">
             <span>Connettiti con noi sui social network:</span>
         </div>
         <!-- Left -->
@@ -159,7 +161,7 @@
                     <h6 class="text-uppercase text-warning  mb-4 fs-5">
                         <i class="fas fa-gem me-3"></i>Deliveboo S.r.L.
                     </h6>
-                    <p>
+                    <p class="open-sans">
                         Rendi il tuo business un successo digitale: soluzioni gestionali per la tua delivery,
                         ottimizzando tempi e risorse per massimizzare l'efficienza.
                     </p>
@@ -174,16 +176,17 @@
                     </h6>
                     <ul class="list-unstyled ">
                         <li>
-                            <a href="#!" class="text-reset text-decoration-none">Diventa un Partner</a>
+                            <a href="#!" class="text-reset text-decoration-none open-sans">Diventa un Partner</a>
                         </li>
                         <li class="mt-3">
-                            <a href="#!" class="text-reset text-decoration-none">Registrati</a>
+                            <a href="#!" class="text-reset text-decoration-none open-sans">Registrati</a>
                         </li>
                         <li class="mt-3">
-                            <a href="#!" class="text-reset text-decoration-none">Scopri i Nostri Servizi</a>
+                            <a href="#!" class="text-reset text-decoration-none open-sans">Scopri i Nostri
+                                Servizi</a>
                         </li>
                         <li class="mt-3">
-                            <a href="#!" class="text-reset text-decoration-none">Domande Frequenti</a>
+                            <a href="#!" class="text-reset text-decoration-none open-sans">Domande Frequenti</a>
                         </li>
                     </ul>
                 </div>
@@ -197,16 +200,16 @@
                     </h6>
                     <ul class="list-unstyled ">
                         <li>
-                            <a href="#!" class="text-reset text-decoration-none">Crea un Account</a>
+                            <a href="#!" class="text-reset text-decoration-none open-sans">Crea un Account</a>
                         </li>
                         <li class="mt-3">
-                            <a href="#!" class="text-reset text-decoration-none">Cerca Ristoranti</a>
+                            <a href="#!" class="text-reset text-decoration-none open-sans">Cerca Ristoranti</a>
                         </li>
                         <li class="mt-3">
-                            <a href="#!" class="text-reset text-decoration-none">Esplora i Menu</a>
+                            <a href="#!" class="text-reset text-decoration-none open-sans">Esplora i Menu</a>
                         </li>
                         <li class="mt-3">
-                            <a href="#!" class="text-reset text-decoration-none">Assistenza Clienti</a>
+                            <a href="#!" class="text-reset text-decoration-none open-sans">Assistenza Clienti</a>
                         </li>
                     </ul>
                 </div>
@@ -215,13 +218,13 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase text-warning mb-4 fs-5">Contatti</h6>
-                    <p><i class="fas fa-home me-3"></i> Via Roma, 123 - 00100 Roma (RM)</p>
-                    <p>
-                        <i class="fas fa-envelope me-3"></i>
+                    <p class="open-sans"><i class="fas fa-home me-3 "></i> Via Roma, 123 - 00100 Roma (RM)</p>
+                    <p class="open-sans">
+                        <i class="fas fa-envelope me-3 "></i>
                         info@deliveboo.com
                     </p>
-                    <p><i class="fas fa-phone me-3"></i> +39 0123 456789</p>
-                    <p><i class="fas fa-globe me-3"></i> www.deliveboo.com</p>
+                    <p class="open-sans"><i class="fas fa-phone me-3 "></i> +39 0123 456789</p>
+                    <p class="open-sans"><i class="fas fa-globe me-3 "></i> www.deliveboo.com</p>
                 </div>
                 <!-- Grid column -->
             </div>

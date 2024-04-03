@@ -20,6 +20,7 @@ class CategorySeeder extends Seeder
             ['name' => 'Primo'],
             ['name' => 'Secondo'],
             ['name' => 'Antipasto'],
+            ['name' => 'Dolce'],
             ['name' => 'Bevanda'],
             ['name' => 'Pasta'],
             ['name' => 'Pizza'],
