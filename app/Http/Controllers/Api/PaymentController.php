@@ -30,6 +30,8 @@ class PaymentController extends Controller
 
         $cart = $request->input('cart');
 
+        $userData = $request->input('userData');
+
         // modifiche del carrello
         $amount = 0;
 
@@ -58,11 +60,11 @@ class PaymentController extends Controller
         if ($result->success) {
             
 
-           /*  $order = Order::create([
-                'name' => $request->name,
-                'surname' => $request->surname,
-                'address' => $request->address,
-                'phone' => $request->phone,
+            $order = Order::create([
+                'name' => $userData['name'],
+                'surname' => $userData['surname'],
+                'delivery_address' => $userData['address'],
+                'phone' => $userData['phone'],
                 'price'  => $amount,
                 'restaurant_id' => $restaurant_id,
             ]);
@@ -74,7 +76,7 @@ class PaymentController extends Controller
                 $quantity = $item['quantity']; 
                 $order->dishes()->attach($dish_id);
                 $order->dishes()->attach($quantity);
-            } */
+            }
 
             
 
