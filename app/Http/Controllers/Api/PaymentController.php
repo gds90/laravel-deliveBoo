@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
+use App\Models\Dish;
+use App\Models\Order;
+
 
 class PaymentController extends Controller
 {
@@ -42,7 +45,7 @@ class PaymentController extends Controller
 
         $amount = number_format($amount, 2);
 
-        var_dump($amount);
+        
 
         $result = $this->gateway->transaction()->sale([
             'amount' => $amount,
@@ -53,6 +56,28 @@ class PaymentController extends Controller
         ]);
 
         if ($result->success) {
+            
+
+           /*  $order = Order::create([
+                'name' => $request->name,
+                'surname' => $request->surname,
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'price'  => $amount,
+                'restaurant_id' => $restaurant_id,
+            ]);
+            
+            $order->save();
+
+            foreach ($cart as $item) {
+                $dish_id = $item['id'];
+                $quantity = $item['quantity']; 
+                $order->dishes()->attach($dish_id);
+                $order->dishes()->attach($quantity);
+            } */
+
+            
+
             return response()->json(['success' => true, 'transaction_id' => $result->transaction->id]);
         } else {
             return response()->json(['success' => false, 'message' => $result->message]);
