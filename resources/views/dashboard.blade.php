@@ -23,6 +23,13 @@
                                 Visualizza i tuoi piatti
                             </a>
                         </div>
+                        <div class="text_blue_primary mt-3">
+                            <a href="{{ route('admin.orders.index') }}"
+                                class="text-decoration-none text-reset btn btn-light p-3 w-100"><i
+                                    class="fa-solid fa-pizza-slice me-2"></i>
+                                Visualizza i tuoi ordini
+                            </a>
+                        </div>
                         {{-- <div>
                         <a href="{{ route('admin.restaurants.index') }}">Restaurants</a>
                     </div> --}}

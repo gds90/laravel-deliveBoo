@@ -1,0 +1,93 @@
+@extends('dashboard')
+
+@section('dashboard_content')
+    <div class="container py-3">
+        <div class="row">
+
+            @if ($orders->count() > 0)
+                <div class="col-12 mb-3">
+                    @if (session('error_message'))
+                        <div class="d-flex justify-content-center ">
+                            <h4 class="text-warning">{{ session('error_message') }}</h4>
+                        </div>
+                    @endif
+                    <div class="content d-flex align-items-center fs-3">
+                        <a class="btn btna-outline-warning fw-bold m-3" href="{{ Route('admin.orders.create') }}"
+                            role="button"><i class="fa-solid fa-plus"></i></a>
+                        <div class="text-warning">Aggiungi un nuovo piatto</div>
+                    </div>
+                </div>
+                <div class="col-12 py-3">
+                    <table class="table table-warning roundedTable">
+                        <thead>
+                            <tr class="">
+                                {{-- <th scope="col" class="fw-light fs-5">#</th> --}}
+                                <th scope="col" class="fw-light fs-5">Nome</th>
+                                <th scope="col" class="fw-light fs-5">Cognome</th>
+                                <th scope="col" class="fw-light fs-5">Indirizzo</th>
+                                <th scope="col" class="fw-light fs-5">N.Telefono</th>
+                                <th scope="col" class="fw-light fs-5">Prezzo</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($orders as $order)
+                                <tr class="open-sans">
+                                    {{-- <th class="text-secondary-emphasis ">{{ $order->id }}</th> --}}
+                                    <td class="text-secondary-emphasis fw-bold ">{{ $order->name }}</td>
+                                    <td class="text-secondary-emphasis ">{{ $order->surname }}</td>
+                                    <td class="text-secondary-emphasis ">{{ $order->phone }}€</td>
+                                    <td class="text-secondary-emphasis ">
+                                        @if ($order->phone)
+                                            {{ $order->phone }}
+                                        @else
+                                            Non definito
+                                        @endif
+                                    </td>
+                                    <td class="text-secondary-emphasis ">{{ $order->price }}€</td>
+                                    {{-- <td>
+                                        <div class="button-container d-flex">
+                                            <a href="{{ route('admin.orders.show', ['order' => $order->slug]) }}"
+                                                class="btn btn-primary m-2"><i class="fas fa-eye"></i></a>
+                                            <a class="btn btn-warning  m-2"
+                                                href="{{ route('admin.orders.edit', ['order' => $order->slug]) }}"><i
+                                                    class="fa-solid fa-edit"></i></a>
+                                            {{-- <form class=" m-2"
+                                            action="{{ route('admin.orders.destroy', ['order' => $order['slug']]) }}"
+                                            method="POST"
+                                            onsubmit="return confirm('sei sicuro di voler eliminare il piatto?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </form> 
+
+                                         <a href="{{ route('admin.orders.destroy', ['order' => $order->id]) }}"
+                                                class="btn btn-sm btn-outline-danger m-2 px-2" data-bs-toggle="modal"
+                                                data-bs-target="#modal_post_delete-{{ $order->slug }}">
+                                                <i class="fa-solid fa-trash px-1 mt-2"></i>
+                                            </a>
+
+                                            @include('admin.orders.partials.modal_delete')
+                                        </div>
+                                    </td> --}}
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @else
+                <div class="col-12 p-5">
+                    @if (session('error_message'))
+                        <div class="d-flex justify-content-center ">
+                            <h4 class="text-warning">{{ session('error_message') }}</h4>
+                        </div>
+                    @endif
+                    <div class="content d-flex align-items-center justify-content-center">
+                        <div class="text-white fs-1 fw-bold">Non hai nessun ordine</div>
+                    </div>
+                </div>
+            @endif
+        </div>
+    </div>
+@endsection

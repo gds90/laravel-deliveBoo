@@ -1,7 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use App\Models\Dish;
+use App\Models\Category;
+use App\Models\Restaurant;
+use App\Models\User;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
@@ -15,17 +21,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
+        $restaurant = Auth::user()->restaurant; // Supponendo che ci sia una relazione tra utente e ristorante
+        $orders = Order::where('restaurant_id',$restaurant->id)->get();
+        dd($orders);
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
@@ -36,19 +35,8 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        $orderData = $request->all();
+       
 
-        // Esempio di creazione di un nuovo ordine utilizzando il modello
-        $order = Order::create([
-            'user_id' => $orderData['user_id'],
-            'restaurant_id' => $orderData['restaurant_id'],
-            'total_amount' => $orderData['total_amount'],
-            'status' => 'pending' // Puoi impostare uno stato predefinito per il nuovo ordine
-        ]);
-
-        // Salva i dettagli dell'ordine, come i piatti, nella tabella degli ordini correlati, se necessario
-
-        return response()->json(['message' => 'Ordine salvato con successo', 'order' => $order]);
     }
 
     /**
@@ -59,7 +47,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        
     }
 
     /**
