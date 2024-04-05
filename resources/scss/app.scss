@@ -20,6 +20,10 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
+.indi-flowers {
+    font-family: "Indie Flower", cursive;
+}
+
 .bg_blue_primary {
     background-color: rgb(21, 49, 96);
     margin-top: 100px;
@@ -241,4 +245,103 @@ textarea {
 .dish-stats,
 .sales-stats {
     background-color: white;
+}
+
+// ORDER.SHOW
+.card {
+    padding: 20px;
+    width: 70%;
+    height: 254px;
+    background: white;
+    border-radius: 10px;
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.shadow {
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgb(190, 190, 190),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+.receipt {
+
+    html,
+    body {
+        background: #DDD;
+        height: 100%;
+        font-family: 'Poiret One', cursive;
+    }
+
+    .receiptWrapper {
+        height: 100%;
+        margin: 0 auto;
+        display: inline-block;
+    }
+
+    .receipt {
+        padding: 10px;
+        text-transform: Uppercase;
+        position: relative;
+        top: 20px;
+        -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 2px;
+    }
+
+    .receipt .receiptHeader,
+    .receipt .receiptItem,
+    .receipt .receiptFooter {
+        text-align: center;
+    }
+
+    .receipt .receiptTable {
+        margin: 0 auto;
+    }
+
+    .receipt .receiptTable>thead>tr>th,
+    .receipt .receiptTable>tbody>tr>td {
+        text-align: left;
+    }
+
+    .receipt .receiptTable>thead>tr>th:nth-child(2),
+    .receipt .receiptTable>tbody>tr>td:nth-child(2) {
+        text-align: left;
+    }
+
+
+    .zig-zag {
+        background: #FFF;
+        position: relative;
+    }
+
+    .zig-zag-top:before,
+    .zig-zag-bottom:after {
+        background-repeat: repeat-x;
+        content: " ";
+        display: block;
+        height: 32px;
+        width: 100%;
+        position: absolute;
+        z-index: 0;
+        left: 0;
+    }
+
+    .zig-zag-top:before {
+        background:
+            linear-gradient(-45deg, #FFF 16px, red 16px, blue 16px, transparent 0),
+            linear-gradient(45deg, #FFF 16px, transparent 0);
+        background-size: 22px 32px;
+        background-position: left top;
+        top: -30px;
+    }
+
+    .zig-zag-bottom:after {
+        background:
+            linear-gradient(-135deg, #FFF 16px, red 16px, blue 16px, transparent 0),
+            linear-gradient(135deg, #FFF 16px, transparent 0);
+        background-position: left bottom;
+        background-size: 22px 32px;
+    }
 }

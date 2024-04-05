@@ -25,29 +25,51 @@
                                 <th scope="col" class="fw-light fs-5">Nome</th>
                                 <th scope="col" class="fw-light fs-5">Cognome</th>
                                 <th scope="col" class="fw-light fs-5">Indirizzo</th>
-                                <th scope="col" class="fw-light fs-5">N.Telefono</th>
-                                <th scope="col" class="fw-light fs-5">Totale ordine</th>
-                                <th scope="col" class="fw-light fs-5">Data e ora ordine</th>
-                                <th scope="col" class="fw-light fs-5">Stato ordine</th>
+                                <th scope="col" class="fw-light fs-5">Telefono</th>
+                                <th scope="col" class="fw-light fs-5">Totale €</th>
+                                <th scope="col" class="fw-light fs-5">Data e ora</th>
+                                <th scope="col" class="fw-light fs-5">Stato</th>
+                                <th scope="col" class="fw-light fs-5">Dettagli</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($orders as $order)
                                 <tr class="open-sans">
                                     {{-- <th class="text-secondary-emphasis ">{{ $order->id }}</th> --}}
-                                    <td class="text-secondary-emphasis fw-bold ">{{ $order->name }}</td>
-                                    <td class="text-secondary-emphasis">{{ $order->surname }}</td>
-                                    <td class="text-secondary-emphasis ">{{ $order->delivery_address }}</td>
-                                    <td class="text-secondary-emphasis ">
+                                    <td class="text-secondary-emphasis fw-bold pt-3">{{ $order->name }}</td>
+                                    <td class="text-secondary-emphasis pt-3">{{ $order->surname }}</td>
+                                    <td class="text-secondary-emphasis pt-3">{{ $order->delivery_address }}</td>
+                                    <td class="text-secondary-emphasis pt-3">
                                         @if ($order->phone)
                                             {{ $order->phone }}
                                         @else
                                             Non definito
                                         @endif
                                     </td>
-                                    <td class="text-secondary-emphasis ">{{ $order->price }}€</td>
-                                    <td class="text-secondary-emphasis ">
+                                    <td class="text-secondary-emphasis pt-3">{{ $order->price }}€</td>
+                                    <td class="text-secondary-emphasis pt-3">
                                         {{ \Carbon\Carbon::parse($order->created_at)->format('d-m-y - H:i') }}</td>
+                                    <td class="text-secondary-emphasis pt-2">
+                                        <form action="{{ route('admin.orders.update', ['order' => $order->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <select id="status" name="status" class="form-select"
+                                                onchange="this.form.submit()">
+                                                <option value="in lavorazione"
+                                                    {{ $order->status === 'in lavorazione' ? 'selected' : '' }}>In
+                                                    lavorazione</option>
+                                                <option value="in consegna"
+                                                    {{ $order->status === 'in consegna' ? 'selected' : '' }}>In consegna
+                                                </option>
+                                            </select>
+                                        </form>
+                                    </td>
+                                    <td class="text-secondary-emphasis p-3"><a
+                                            href="{{ route('admin.orders.show', ['order' => $order->id]) }}"
+                                            class="btn btn-sm btn-outline-secondary">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </a></td>
                                     {{-- <td>
                                         <div class="button-container d-flex">
                                             <a href="{{ route('admin.orders.show', ['order' => $order->slug]) }}"
@@ -74,7 +96,7 @@
                                             @include('admin.orders.partials.modal_delete')
                                         </div>
                                     </td> --}}
-                                    <td class="text-secondary-emphasis ">In lavorazione / In consegna</td>
+
                                 </tr>
                             @endforeach
                         </tbody>
