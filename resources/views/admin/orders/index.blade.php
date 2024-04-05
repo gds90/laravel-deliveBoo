@@ -35,7 +35,7 @@
                                 <tr class="open-sans">
                                     {{-- <th class="text-secondary-emphasis ">{{ $order->id }}</th> --}}
                                     <td class="text-secondary-emphasis fw-bold ">{{ $order->name }}</td>
-                                    <td class="text-secondary-emphasis ">{{ $order->surname }}</td>
+                                    <td class="text-secondary-emphasis">{{ $order->surname }}</td>
                                     <td class="text-secondary-emphasis ">{{ $order->delivery_address }}</td>
                                     <td class="text-secondary-emphasis ">
                                         @if ($order->phone)

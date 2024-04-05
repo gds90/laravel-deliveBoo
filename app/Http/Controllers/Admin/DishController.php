@@ -242,12 +242,12 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        // controllo se il progetto ha un'immagine da eliminare
+        // controllo se il piatto ha un'immagine da eliminare
         if ($dish->cover_image != null) {
             Storage::disk('public')->delete($dish->cover_image);
         }
 
-        // elimino il progetto dal db
+        // elimino il piatto dal db
         $dish->delete();
 
         return redirect()->route('admin.dishes.index');

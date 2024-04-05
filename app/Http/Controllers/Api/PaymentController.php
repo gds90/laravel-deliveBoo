@@ -47,8 +47,6 @@ class PaymentController extends Controller
 
         $amount = number_format($amount, 2);
 
-        
-
         $result = $this->gateway->transaction()->sale([
             'amount' => $amount,
             'paymentMethodNonce' => $nonce,
@@ -58,7 +56,7 @@ class PaymentController extends Controller
         ]);
 
         if ($result->success) {
-            
+
 
             $order = Order::create([
                 'name' => $userData['name'],
@@ -68,17 +66,16 @@ class PaymentController extends Controller
                 'price'  => $amount,
                 'restaurant_id' => $restaurant_id,
             ]);
-            
+
             $order->save();
 
             foreach ($cart as $item) {
                 $dish_id = $item['id'];
-                $quantity = $item['quantity']; 
-                $order->dishes()->attach($dish_id);
-                $order->dishes()->attach($quantity);
+                $quantity = $item['quantity'];
+                $order->dishes()->attach($dish_id, ['quantity' => $quantity]);
             }
 
-            
+
 
             return response()->json(['success' => true, 'transaction_id' => $result->transaction->id]);
         } else {
