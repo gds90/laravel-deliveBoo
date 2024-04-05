@@ -29,6 +29,7 @@
                                 <th scope="col" class="fw-light fs-5">Totale €</th>
                                 <th scope="col" class="fw-light fs-5">Data e ora</th>
                                 <th scope="col" class="fw-light fs-5">Stato</th>
+                                <th scope="col" class="fw-light fs-5">Dettagli</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,7 +49,7 @@
                                     <td class="text-secondary-emphasis pt-3">{{ $order->price }}€</td>
                                     <td class="text-secondary-emphasis pt-3">
                                         {{ \Carbon\Carbon::parse($order->created_at)->format('d-m-y - H:i') }}</td>
-                                    <td class="text-secondary-emphasis">
+                                    <td class="text-secondary-emphasis pt-2">
                                         <form action="{{ route('admin.orders.update', ['order' => $order->id]) }}"
                                             method="POST">
                                             @csrf
@@ -64,6 +65,11 @@
                                             </select>
                                         </form>
                                     </td>
+                                    <td class="text-secondary-emphasis p-3"><a
+                                            href="{{ route('admin.orders.show', ['order' => $order->id]) }}"
+                                            class="btn btn-sm btn-outline-secondary">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </a></td>
                                     {{-- <td>
                                         <div class="button-container d-flex">
                                             <a href="{{ route('admin.orders.show', ['order' => $order->slug]) }}"
