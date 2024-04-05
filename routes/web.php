@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
+    Route::get('/charts', [OrderController::class, 'charts'])->name('charts');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('restaurants', RestaurantController::class);
     Route::resource('orders', OrderController::class);

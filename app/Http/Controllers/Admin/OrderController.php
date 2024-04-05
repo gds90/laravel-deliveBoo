@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use DateTime;
 
 class OrderController extends Controller
 {
@@ -78,5 +79,42 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function charts()
+    {
+        // Recupero l'id del ristorante loggato
+        $restaurantId = Auth::user()->restaurant->id;
+
+        // Ottieni tutti i piatti con le relative quantità di ordini
+        $orderedDishes = [];
+        $dishes = Dish::where('restaurant_id', $restaurantId)->with('orders')->get();
+
+        foreach ($dishes as $dish) {
+            $quantity = $dish->orders->sum('pivot.quantity');
+            $orderedDishes[$dish->name] = $quantity;
+        }
+
+        // Recupero il fatturato mensile per il ristorante loggato
+        $monthSales = Order::where('restaurant_id', $restaurantId)
+            ->selectRaw('MONTH(created_at) as month, SUM(price) as total')
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get();
+
+        // Costruisco i dati per il grafico del fatturato
+        $months = [];
+        $sales = [];
+
+        foreach ($monthSales as $sale) {
+            $months[] = DateTime::createFromFormat('!m', $sale->month)->format('F');
+            $sales[] = $sale->total;
+        }
+
+        // Costruisco i dati per il grafico  delle vendite dei piatti
+        $labels = array_keys($orderedDishes);
+        $quantity = array_values($orderedDishes);
+
+        return view('admin.orders.statistics', compact('labels', 'quantity', 'months', 'sales'));
     }
 }

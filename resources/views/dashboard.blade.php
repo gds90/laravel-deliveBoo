@@ -30,6 +30,13 @@
                                 Visualizza i tuoi ordini
                             </a>
                         </div>
+                        <div class="text_blue_primary mt-3">
+                            <a href="{{ route('admin.charts') }}"
+                                class="text-decoration-none text-reset btn btn-light p-3 w-100"><i
+                                    class="fas fa-chart-line me-md-2 "></i>
+                                Visualizza le statistiche
+                            </a>
+                        </div>
                         {{-- <div>
                         <a href="{{ route('admin.restaurants.index') }}">Restaurants</a>
                     </div> --}}
