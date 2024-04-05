@@ -28,6 +28,7 @@
                                 <th scope="col" class="fw-light fs-5">N.Telefono</th>
                                 <th scope="col" class="fw-light fs-5">Totale ordine</th>
                                 <th scope="col" class="fw-light fs-5">Data e ora ordine</th>
+                                <th scope="col" class="fw-light fs-5">Stato ordine</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,6 +74,7 @@
                                             @include('admin.orders.partials.modal_delete')
                                         </div>
                                     </td> --}}
+                                    <td class="text-secondary-emphasis ">In lavorazione / In consegna</td>
                                 </tr>
                             @endforeach
                         </tbody>
