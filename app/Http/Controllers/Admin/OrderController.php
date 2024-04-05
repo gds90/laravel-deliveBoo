@@ -22,8 +22,7 @@ class OrderController extends Controller
     public function index()
     {
         $restaurant = Auth::user()->restaurant; // Supponendo che ci sia una relazione tra utente e ristorante
-        $orders = Order::where('restaurant_id',$restaurant->id)->get();
-        dd($orders);
+        $orders = Order::where('restaurant_id', $restaurant->id)->get();
         return view('admin.orders.index', compact('orders'));
     }
 
@@ -35,8 +34,6 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-       
-
     }
 
     /**
@@ -47,7 +44,6 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        
     }
 
     /**

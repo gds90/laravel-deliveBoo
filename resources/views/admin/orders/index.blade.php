@@ -12,9 +12,9 @@
                         </div>
                     @endif
                     <div class="content d-flex align-items-center fs-3">
-                        <a class="btn btna-outline-warning fw-bold m-3" href="{{ Route('admin.orders.create') }}"
-                            role="button"><i class="fa-solid fa-plus"></i></a>
-                        <div class="text-warning">Aggiungi un nuovo piatto</div>
+                        {{-- <a class="btn btna-outline-warning fw-bold m-3" href="{{ Route('admin.orders.create') }}"
+                            role="button"><i class="fa-solid fa-plus"></i></a> --}}
+                        <div class="text-warning">Ordini ricevuti</div>
                     </div>
                 </div>
                 <div class="col-12 py-3">
@@ -26,8 +26,8 @@
                                 <th scope="col" class="fw-light fs-5">Cognome</th>
                                 <th scope="col" class="fw-light fs-5">Indirizzo</th>
                                 <th scope="col" class="fw-light fs-5">N.Telefono</th>
-                                <th scope="col" class="fw-light fs-5">Prezzo</th>
-
+                                <th scope="col" class="fw-light fs-5">Totale ordine</th>
+                                <th scope="col" class="fw-light fs-5">Data e ora ordine</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,7 +36,7 @@
                                     {{-- <th class="text-secondary-emphasis ">{{ $order->id }}</th> --}}
                                     <td class="text-secondary-emphasis fw-bold ">{{ $order->name }}</td>
                                     <td class="text-secondary-emphasis ">{{ $order->surname }}</td>
-                                    <td class="text-secondary-emphasis ">{{ $order->phone }}€</td>
+                                    <td class="text-secondary-emphasis ">{{ $order->delivery_address }}</td>
                                     <td class="text-secondary-emphasis ">
                                         @if ($order->phone)
                                             {{ $order->phone }}
@@ -45,6 +45,8 @@
                                         @endif
                                     </td>
                                     <td class="text-secondary-emphasis ">{{ $order->price }}€</td>
+                                    <td class="text-secondary-emphasis ">
+                                        {{ \Carbon\Carbon::parse($order->created_at)->format('d-m-y - H:i') }}</td>
                                     {{-- <td>
                                         <div class="button-container d-flex">
                                             <a href="{{ route('admin.orders.show', ['order' => $order->slug]) }}"
