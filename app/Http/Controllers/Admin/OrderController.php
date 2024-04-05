@@ -66,7 +66,11 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
+        $form_data = $request->all();
+
+        $order->update($form_data);
+
+        return redirect()->back()->with('success_message', 'Lo stato dell\'ordine è stato aggiornato con successo.');
     }
 
     /**
