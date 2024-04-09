@@ -48,7 +48,8 @@
                                     </td>
                                     <td class="text-secondary-emphasis pt-3">{{ $order->price }}€</td>
                                     <td class="text-secondary-emphasis pt-3 d-lg-table-cell d-none">
-                                        {{ \Carbon\Carbon::parse($order->created_at)->format('d-m-y - H:i') }}</td>
+                                        {{ \Carbon\Carbon::parse($order->created_at)->addHours(2)->format('d-m-y - H:i') }}
+                                    </td>
                                     <td class="text-secondary-emphasis pt-2">
                                         <form action="{{ route('admin.orders.update', ['order' => $order->id]) }}"
                                             method="POST">
