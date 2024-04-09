@@ -93,7 +93,7 @@
                     <div class="form-group mb-5">
                         <div class="form-check mt-2">
                             <input class="form-check-input @error('visible') is-invalid @enderror" type="checkbox"
-                                id="visible" name="visible" value="1" {{ old('visible') ? 'checked' : '' }}>
+                                id="visible" name="visible" value="1" {{ $dish->visible ? 'checked' : '' }}>
                             <label class="form-check-label open-sans" for="visible">Disponibile subito?</label>
                         </div>
                         @error('visible')

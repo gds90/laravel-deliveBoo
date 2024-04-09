@@ -55,8 +55,9 @@
                                     <td>
                                         <div class="button-container d-flex">
                                             <a href="{{ route('admin.dishes.show', ['dish' => $dish->slug]) }}"
-                                                class="btn btn-primary m-2"><i class="fas fa-eye"></i></a>
-                                            <a class="btn btn-warning  m-2"
+                                                class="btn btn-outline-secondary m-2"><i
+                                                    class="fa-solid fa-magnifying-glass"></i></a>
+                                            <a class="btn btn-outline-warning  m-2"
                                                 href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}"><i
                                                     class="fa-solid fa-edit"></i></a>
                                             {{-- <form class=" m-2"

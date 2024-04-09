@@ -24,7 +24,7 @@
                                 {{-- <th scope="col" class="fw-light fs-5">#</th> --}}
                                 <th scope="col" class="fw-light fs-5">Nome</th>
                                 <th scope="col" class="fw-light fs-5">Cognome</th>
-                                <th scope="col" class="fw-light fs-5">Indirizzo</th>
+                                <th scope="col" class="fw-light fs-5 d-lg-table-cell d-none">Indirizzo</th>
                                 <th scope="col" class="fw-light fs-5 d-lg-table-cell d-none">Telefono</th>
                                 <th scope="col" class="fw-light fs-5">Totale €</th>
                                 <th scope="col" class="fw-light fs-5 d-lg-table-cell d-none">Data e ora</th>
@@ -38,7 +38,8 @@
                                     {{-- <th class="text-secondary-emphasis ">{{ $order->id }}</th> --}}
                                     <td class="text-secondary-emphasis fw-bold pt-3">{{ $order->name }}</td>
                                     <td class="text-secondary-emphasis pt-3">{{ $order->surname }}</td>
-                                    <td class="text-secondary-emphasis pt-3">{{ $order->delivery_address }}</td>
+                                    <td class="text-secondary-emphasis pt-3 d-lg-table-cell d-none">
+                                        {{ $order->delivery_address }}</td>
                                     <td class="text-secondary-emphasis pt-3 d-lg-table-cell d-none">
                                         @if ($order->phone)
                                             {{ $order->phone }}
