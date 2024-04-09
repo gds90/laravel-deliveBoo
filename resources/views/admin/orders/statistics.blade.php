@@ -55,12 +55,26 @@
                     }]
                 },
                 options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true, // Inizia l'asse delle y da zero
+                                min: 0, // Imposta il valore minimo sull'asse delle y a zero
+                                // Puoi anche impostare un intervallo personalizzato se lo desideri
+                                // stepSize: 1 // Imposta l'intervallo desiderato, per esempio, 1 per visualizzare tutti i valori interi
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 1000, // Durata dell'animazione in millisecondi
+                        easing: 'easeInOutQuart' // Tipo di easing (opzionale)
+                    },
                     layout: {
                         padding: {
-                            left: 10,
-                            right: 10,
-                            top: 10,
-                            bottom: 10
+                            left: 25,
+                            right: 25,
+                            top: 25,
+                            bottom: 25
                         }
                     },
                     legend: {
@@ -79,12 +93,28 @@
                     }]
                 },
                 options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                callback: function(value, index, values) {
+                                    return '€ ' + value.toFixed(
+                                        2
+                                    ); // Aggiunge il simbolo dell'euro e arrotonda a due cifre decimali
+                                }
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 1000, // Durata dell'animazione in millisecondi
+                        easing: 'easeInOutQuart' // Tipo di easing (opzionale)
+                    },
                     layout: {
                         padding: {
-                            left: 10,
-                            right: 10,
-                            top: 10,
-                            bottom: 10
+                            left: 25,
+                            right: 25,
+                            top: 25,
+                            bottom: 25
                         }
                     },
                     legend: {
