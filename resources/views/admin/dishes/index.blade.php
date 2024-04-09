@@ -23,9 +23,9 @@
                             <tr class="">
                                 {{-- <th scope="col" class="fw-light fs-5">#</th> --}}
                                 <th scope="col" class="fw-light fs-5">Nome</th>
-                                <th scope="col" class="fw-light fs-5">Descrizione</th>
+                                <th scope="col" class="fw-light fs-5 d-lg-table-cell d-none">Descrizione</th>
                                 <th scope="col" class="fw-light fs-5">Prezzo</th>
-                                <th scope="col" class="fw-light fs-5">Immagine di Copertina</th>
+                                <th scope="col" class="fw-light fs-5 d-lg-table-cell d-none">Immagine di Copertina</th>
                                 <th scope="col" class="fw-light fs-5">Categoria</th>
                                 <th scope="col" class="fw-light fs-5">Strumenti</th>
                             </tr>
@@ -35,9 +35,9 @@
                                 <tr class="open-sans">
                                     {{-- <th class="text-secondary-emphasis ">{{ $dish->id }}</th> --}}
                                     <td class="text-secondary-emphasis fw-bold ">{{ $dish->name }}</td>
-                                    <td class="text-secondary-emphasis ">{{ $dish->description }}</td>
+                                    <td class="text-secondary-emphasis d-lg-table-cell d-none">{{ $dish->description }}</td>
                                     <td class="text-secondary-emphasis ">{{ $dish->price }}€</td>
-                                    <td>
+                                    <td class="d-lg-table-cell d-none">
                                         @if ($dish->cover_image)
                                             <img src="/storage/{{ $dish->cover_image }}" class="w-50 img-fluid"></img>
                                         @else

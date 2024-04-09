@@ -74,15 +74,18 @@ body {
         opacity: 90%;
         transition: transform 0.3s;
         color: rgb(21, 49, 96);
+        background-color: rgba(245, 195, 68);
 
         &:hover {
             opacity: 100%;
             transform: scale(1.05);
+            color: rgb(21, 49, 96);
         }
     }
 
     .dropdown-menu {
         background-color: rgba(245, 195, 68);
+        position: absolute;
     }
 }
 

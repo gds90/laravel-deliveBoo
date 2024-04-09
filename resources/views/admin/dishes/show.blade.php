@@ -17,7 +17,7 @@
             <div class="col-12 col-md-7">
 
                 <div class="dish-top-content text-start">
-                    <div class="title d-flex justify-content-between align-items-center ">
+                    <div class="title d-flex justify-content-between align-items-center mt-md-0 mt-3">
                         <h2>{{ $dish->name }}</h2>
                         <strong class="fs-3">&euro; {{ $dish->price }}</strong>
                     </div>

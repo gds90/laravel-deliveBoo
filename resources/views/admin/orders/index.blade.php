@@ -25,11 +25,11 @@
                                 <th scope="col" class="fw-light fs-5">Nome</th>
                                 <th scope="col" class="fw-light fs-5">Cognome</th>
                                 <th scope="col" class="fw-light fs-5">Indirizzo</th>
-                                <th scope="col" class="fw-light fs-5">Telefono</th>
+                                <th scope="col" class="fw-light fs-5 d-lg-table-cell d-none">Telefono</th>
                                 <th scope="col" class="fw-light fs-5">Totale €</th>
-                                <th scope="col" class="fw-light fs-5">Data e ora</th>
+                                <th scope="col" class="fw-light fs-5 d-lg-table-cell d-none">Data e ora</th>
                                 <th scope="col" class="fw-light fs-5">Stato</th>
-                                <th scope="col" class="fw-light fs-5">Dettagli</th>
+                                <th scope="col" class="fw-light fs-5">Dettaglio</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,7 +39,7 @@
                                     <td class="text-secondary-emphasis fw-bold pt-3">{{ $order->name }}</td>
                                     <td class="text-secondary-emphasis pt-3">{{ $order->surname }}</td>
                                     <td class="text-secondary-emphasis pt-3">{{ $order->delivery_address }}</td>
-                                    <td class="text-secondary-emphasis pt-3">
+                                    <td class="text-secondary-emphasis pt-3 d-lg-table-cell d-none">
                                         @if ($order->phone)
                                             {{ $order->phone }}
                                         @else
@@ -47,7 +47,7 @@
                                         @endif
                                     </td>
                                     <td class="text-secondary-emphasis pt-3">{{ $order->price }}€</td>
-                                    <td class="text-secondary-emphasis pt-3">
+                                    <td class="text-secondary-emphasis pt-3 d-lg-table-cell d-none">
                                         {{ \Carbon\Carbon::parse($order->created_at)->format('d-m-y - H:i') }}</td>
                                     <td class="text-secondary-emphasis pt-2">
                                         <form action="{{ route('admin.orders.update', ['order' => $order->id]) }}"

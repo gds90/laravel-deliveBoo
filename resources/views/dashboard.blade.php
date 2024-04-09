@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-10 m-auto col-md-9 text-warning text-center pt-3">
+            <div class="col-12 m-auto col-md-9 text-warning text-center pt-3">
                 @if (Route::currentRouteName() == 'admin.dashboard')
                     @if (isset($restaurant))
                         <div class="row">
@@ -77,7 +77,7 @@
                                 class="d-inline d-md-none text-decoration-underline text-warning"><span
                                     class="ms-2">Scegli
                                     un'opzione dal menù<span></a>
-                            <span class="ms-2 d-none d-md-inline">Scegli un'opzione dal menù<span>
+
                         </h2>
                     @endif
 
@@ -95,6 +95,20 @@
                                     class="text-decoration-none text-reset btn btn-light p-3 w-100"><i
                                         class="fa-solid fa-pizza-slice me-2"></i>
                                     Visualizza i tuoi piatti
+                                </a>
+                            </div>
+                            <div class="text_blue_primary mt-3">
+                                <a href="{{ route('admin.orders.index') }}"
+                                    class="text-decoration-none text-reset btn btn-light p-3 w-100"><i
+                                        class="fa-solid fa-bag-shopping me-md-2 "></i>
+                                    Visualizza i tuoi ordini
+                                </a>
+                            </div>
+                            <div class="text_blue_primary mt-3">
+                                <a href="{{ route('admin.charts') }}"
+                                    class="text-decoration-none text-reset btn btn-light p-3 w-100"><i
+                                        class="fas fa-chart-line me-md-2 "></i>
+                                    Visualizza le statistiche
                                 </a>
                             </div>
                         </div>

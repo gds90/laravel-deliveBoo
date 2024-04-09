@@ -8,7 +8,7 @@
             <div class="col-12">
                 <h1>Statistiche dei tuoi piatti:</h1>
                 <div class="dish-stats rounded-4">
-                    <canvas id="dishChart"></canvas>
+                    <canvas id="dishChart" class="rounded-top-4"></canvas>
                 </div>
             </div>
             <hr class="my-4">

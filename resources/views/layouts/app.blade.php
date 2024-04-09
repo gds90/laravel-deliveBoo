@@ -51,38 +51,53 @@
                     <div class="logo">
                         <img src="/img/logo.png" alt="Deliveboo">
                     </div>
-                    <div class="logo_text">
+                    <div class="logo_text d-md-block d-none">
                         <img src="/img/logo_text.png" alt="Deliveboo">
                     </div>
 
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> --}}
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="/"></a>
+                        </li> --}}
+                        <li class="text-white">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                                {{-- <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a> --}}
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
                         </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="list-unstyled ml-auto d-flex align-items-center pt-3">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="http://localhost:5174/">HOME</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item ms-3">
                                 <a class="nav-link" href="{{ route('login') }}">LOGIN</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item ms-3">
                                     <a class="nav-link" href="{{ route('register') }}">REGISTRATI</a>
                                 </li>
                             @endif
@@ -94,7 +109,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
                                     {{-- <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a> --}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
