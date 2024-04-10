@@ -7,7 +7,7 @@
             <div class="col-12 col-md-5 text-center">
                 @if ($dish->cover_image)
                     <img src="{{ asset('/storage/' . $dish->cover_image) }}"
-                        class="img-fluid rounded-2 border-warning border-5" alt="{{ $dish->name }}">
+                        class="img-fluid rounded-2 border-warning border-5 shadow " alt="{{ $dish->name }}">
                 @else
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpjVJ95QK9Z7ppeuEptxKb-QhLhdKkx6XbzuVd90YuJaJavpvQ2qTxDDpkH95m4A3Jbj8&usqp=CAU"
                         alt="{{ $dish->name }}" class="img-fluid">

@@ -10,7 +10,8 @@
                 <p><strong>Cognome cliente: </strong> {{ $order->surname }}</p>
                 <p><strong>Telefono cliente: </strong> {{ $order->phone }}</p>
                 <p><strong>Indirizzo di consegna: </strong>{{ $order->delivery_address }}</p>
-                <p><strong>Data e ora: </strong>{{ \Carbon\Carbon::parse($order->created_at)->format('d-m-y - H:i') }}</p>
+                <p><strong>Data e ora:
+                    </strong>{{ \Carbon\Carbon::parse($order->created_at)->addHours(2)->format('d-m-y - H:i') }}</p>
                 <p><strong>Totale: </strong>{{ $order->price }}€</p>
                 <p><strong>Stato: </strong>{{ $order->status }}</p>
             </div>

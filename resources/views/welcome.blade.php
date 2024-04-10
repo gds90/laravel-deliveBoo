@@ -31,11 +31,12 @@
                 </div>
                 <div class="col-12 col-xl-6 m-auto">
                     <div class="content_jumbo_right pt-5">
-                        <div class="jumbo_text text-center">
-                            <h1>Welcome to</h1>
-                            <div>
-                                <h2>DELIVEBOO</h2>
-                            </div>
+                        <div class="jumbo_text text-center mt-5">
+
+
+                            <h1>DELIVEBOO</h1>
+
+
                         </div>
 
                     </div>
